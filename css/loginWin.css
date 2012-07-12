@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+    a{color:#000;text-decoration:none;}
+	a:hover{color:#F30;text-decoration:underline;}
+	.txtbox{border:1px solid #E79F50;height:20px;line-height:22px;width:120px;}
+	.bfont{font:700 12px "宋体"};
+	#login{width:400px;height:100%;overflow:hidden;margin:0px auto;}
+	#title{width:400px;height:25px;line-height:25px;color:#F60;font-weight:700;background-color:#FDEBD9;text-align:center;margin:0px auto;}
+	#loginbox{width:185px;height:60px;margin:10px 20px;float:left;display:inline;}
+	#btnlogin{width:55px;height:60px;float:right;margin:10px 30px 10px 5px;}
+	#forget{width:200px;margin:0px auto;height:25px;line-height:25px;text-align:center;}
+	#forget span{width:80px;display:inline;margin:0px 10px;}

@@ -1,0 +1,40 @@
+/* pagination style */
+.pagin {
+padding: 5px 5px 5px 0px;;
+margin: 0;
+font-size: 7pt;
+float:right;
+}
+.pagin * {
+padding: 2px 6px;
+margin: 0;
+}
+.pagin a {
+border: solid 1px #09F;
+background-color:#FFF;
+color: #676d77;
+text-decoration: none;
+}
+.pagin a:visited {
+border: solid 1px #09F;
+background-color: #FFF;
+color: #676d77;
+text-decoration: none;
+}
+.pagin a:hover, .pagin a:active {
+border: solid 1px #09F;
+background-color: white;
+color: #F9F;
+text-decoration: none;
+}
+.pagin span {
+cursor: default;
+border: solid 1px #09F;
+background-color: #FFF;
+color: #676d77;
+}
+.pagin span.current {
+border: solid 1px #09F;
+background-color: #09F;
+color: white;
+}

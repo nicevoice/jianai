@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>弹出层问题的解决办法</title>
+ <style>
+ .box { width:800px; margin:10px auto; background:#f1f1f1; z-index:0; padding:10px;display:inline-table; text-align:center;}
+ .box ul li { width:160px; float:left; border:solid 1px #ccc; background:#CCFF99; margin:10px; position:relative; list-style:none;}
+ .box ul li .layer { position:absolute; left:150px; top:0; width:160px; height:400px; background:#FFF; color:#fff; z-index:99999;}
+ 
+</style>
+ <script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+ 
+</head>
+ <body>
+ <div class="box">
+  <ul id="boxcotent">
+   <li><a href="#">测试新闻标题1</a>
+    <div class="layer" style=" display:none;">
+     <a href="#">这里显示弹出层1</a>
+    </div>
+   </li>
+ 
+   <li><a href="#">测试新闻标题6</a>
+    <div class="layer" style=" display:none;">
+     <a href="#">这里显示弹出层6</a>
+    </div>
+   </li>
+   
+   <li><a href="#">测试新闻标题7</a>
+      <img src="2.jpg" width="160" height="160" />
+      <div> <img id="showImg" src="2.jpg" width="160" height="160" />
+    <div class="layer" style=" display:none;">
+      <img src="2.jpg" width="160" height="160" />
+     </div>
+     </div>
+   </li>
+  </ul>
+ </div>
+ <script type="text/javascript">
+  for(var i = 0; i < $(".box li").length;i++){
+   var j = 10000-i
+   $(".box li").eq(i).css("z-index",j);
+  }
+  $("#boxcotent li").hover(function(){
+   $(this).children(".layer").show();},function(){$(this).children(".layer").hide();}
+   );
+   $("#boxcotent li").hover(function(){
+   $(this).addClass("s");},function(){$(this).removeClass("s");}
+  );
+ </script>
+ </body>
+ </html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>基于jQuery弹出层有9种效果-懒人建站</title>
+    <link href="styles/brand_more.css" type="text/css" rel="stylesheet"/>
+    <script src="scripts/jquery.1.3.2.js" type="text/javascript" language="javascript"></script>
+    <script src="scripts/popup_layer.js" type="text/javascript" language="javascript"></script>
+    <script language="javascript">
+		$(document).ready(function() {
+			//示例1，默认弹出层
+			new PopupLayer({trigger:"#ele1",popupBlk:"#blk1",closeBtn:"#close1"});
+		});
+			
+	</script>
+</head>
+<body>
+	
+        <div id="ele1" style="padding:0 0 0 1000px">触发元素1</div>
+           <div id="blk1" class="blk" style="display:none;">
+            <div class="head"><div class="head-right"></div></div>
+            <div class="main">
+                <a href="javascript:void(0)" id="close1" class="closeBtn">关闭</a>
+                <ul>
+                    <li><a href="#">项目1</a></li>
+                    <li><a href="#">项目2</a></li>
+                    <li><a href="#">项目3</a></li>
+                    <li><a href="#">项目4</a></li>
+                    <li><a href="#">项目5</a></li>
+                    <li><a href="#">项目6</a></li>
+                    <li><a href="#">项目7</a></li>
+                    <li><a href="#">项目8</a></li>
+                    <li><a href="#">项目9</a></li>
+                    <li><a href="#">项目10</a></li>
+                    <li><a href="#">项目11</a></li>
+                    <li><a href="#">项目12</a></li>
+                </ul>
+            </div>
+            <div class="foot"><div class="foot-right"></div></div>
+        </div>
+    
+    
+</body>
+</html>

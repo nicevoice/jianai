@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>tab Demo</title>
+
+<script type="text/javascript" src="include/style/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="include/style/ui.tab.js"></script>
+
+</head>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var tab = new $.fn.tab({
+		tabList:"#demo1 .ui-tab-container .ui-tab-list li",
+		contentList:"#demo1 .ui-tab-container .ui-tab-content"
+	});
+	$("#btn_set_disable").click(function(){
+		tab.setDisable(2);
+	});
+	$("#btn_set_enable").click(function(){
+		tab.setEnable(2);
+	});
+	$("#btn_triggle").click(function(){
+		tab.triggleTab(1);
+	});
+		
+});	
+
+</script>
+<body>
+<div id="demo1">
+ <div class="ui-tab-container">
+	<ul class="clearfix ui-tab-list">
+		<li class="ui-tab-active">从电脑上传图片</li>
+		<li>输入图片网址</li>
+		<li>个人喜好定制</li>
+	</ul>
+  <div class="ui-tab-bd">
+	<div class="ui-tab-content"><p><form action="" method="get"> <input name="upload" type="file" id="upload" /></form>  </p></div>
+	<div class="ui-tab-content" style="display:none"><p>content2</p><p>content2</p><p>content2</p></div>
+	<div class="ui-tab-content" style="display:none"><p>content3</p><p>content3</p><p>content3</p></div>
+  </div>
+	
+ </div>
+</div>
+
+ 
+
+
+
+</body>
+</html>

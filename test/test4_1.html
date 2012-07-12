@@ -1,0 +1,169 @@
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <div id="demo" style="overflow:hidden;width:230px;text-align:center;padding:10px 0 0 100px">
+ <img src="http://www.cnwebshow.com/uploadfile/web/uploadfile/200801/20080113054140200.jpg" id="img1">
+ <a href="#"> <img src="2.jpg" id="img2" alt="ooooooo"> </a>
+ <img src="2.jpg" id="img3">
+ <img src="2.jpg" id="img4">
+ <img src="2.jpg" id="img5">
+ <img src="2.jpg" id="img6">
+ <img src="2.jpg" id="img7">
+ <img src="2.jpg" id="img8">
+ <img src="2.jpg" id="img9">
+ <img src="2.jpg" id="img10">
+ <img src="2.jpg" id="img11">
+ <img src="2.jpg" id="img12">
+ <img src="2.jpg" id="img13">
+ <img src="2.jpg" id="img14">
+ <img src="2.jpg" id="img15">
+ <img src="2.jpg" id="img16">
+ <img src="2.jpg" id="img17">
+ <img src="2.jpg" id="img18">
+ <img src="2.jpg" id="img19">
+ <img src="2.jpg" id="img20">
+ <img src="2.jpg" id="img21">
+ 
+ 
+</div>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div id="enlarge_images" style="position:absolute; display:none; z-index:20; border:5px solid #f4f4f4"></div>
+
+<div id="lbp1" style="display:none">
+<img src="../prod_img/1.jpg" width="200" height="200" />
+<img src="../prod_img/3.jpg" width="160" height="160" />
+</div>
+
+<div id="lbp2" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp3" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp4" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp5" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp6" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp7" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp8" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp9" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp10" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp11" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp12" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp13" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp14" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp15" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp16" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp17" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp18" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp19" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp20" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+
+<div id="lbp21" style="display:none">
+<img src="../prod_img/2.jpg" width="200" height="200" />
+</div>
+<script>
+
+ for(i=1; i<=21; i++){
+ 
+ var imgID = "img" + i;
+ var ts = document.getElementById(imgID);
+ 
+ var ei = document.getElementById("enlarge_images");
+  
+  ts.onmousemove = function(event){
+     event = event || window.event;
+     ei.style.display = "block";
+	 
+	 var id = this.id.substr(3);
+	 var lbpID = "lbp" + id;
+     ei.innerHTML =   document.getElementById(lbpID).innerHTML;
+    ei.style.top  = document.body.scrollTop + event.clientY + 10 + "px";
+    ei.style.left = document.body.scrollLeft + event.clientX + 10 + "px";
+		
+   }
+ 
+ ts.onmouseout = function(){
+  ei.innerHTML = "";
+  ei.style.display = "none";
+ }
+ ts.onclick = function(){
+  window.open( this.src );
+ }
+ }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

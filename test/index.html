@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+	<title>测试</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.divbox.js"></script>	
+	<style>
+		#divSCA
+        {
+            position: absolute;
+            width: 700px;
+            height: 500px;
+            font-size: 12px;
+            background: #fff;
+            border: 0px solid #000;
+            z-index: 10001;
+            display: none;
+        }
+       
+	</style>
+	<script type="text/javascript">
+		function openDiv() {
+			$("#divSCA").OpenDiv();
+		}
+	
+		function closeDiv() {
+			$("#divSCA").CloseDiv();	
+		}
+	</script>
+	
+</head>
+
+<body>
+<div id="divSCA">
+	<font size="50">这是模态DIV,点击关闭</font>
+	<input type="button" value="关闭" onclick="closeDiv()">
+</div>
+	
+	<input type="button" value="弹出" onclick="openDiv()"/>
+	测试能否覆盖 select
+	<select>
+		<option>测试1</option>
+		<option>测试2</option>
+		<option>测试3</option>
+	</select>
+
+	<!-- By Robin_TYUT 2010/08/19-->
+	<!-- Thank U 4 sharing!-->
+</body>
+</html>

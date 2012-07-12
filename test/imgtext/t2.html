@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>鼠标滑过图片显示半透明文字，边框变色代码_网页代码站(www.webdm.cn)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+body{background:#333}
+img{border:none}
+.wrap{margin:10px;position:relative;}
+.photo a{position:absolute;display:block;border:1px solid #999;padding:2px}
+.photo a:hover{border:1px solid #fff;text-decoration:none}
+.photo a span {display:none;cursor:hand;text-align:center;font:bold 12px/30px Verdana, Arial;}
+.photo a:hover span{width:160px;margin:0 2px;background:#000;display:block;position:absolute;bottom:0;left:0;color:#fff;filter:alpha(opacity=60);-moz-
+opacity:0.6;opacity:0.6;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="photo"><a href="#">
+<img src="../2.jpg" border="0" alt=""/>
+<span>
+<ul>
+<li> gucci</li>
+<li> 2500元</li>
+<li> 当当网</li>
+</ul></span>
+
+</a></div>
+</div>
+</body>
+</html>
