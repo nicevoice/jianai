@@ -56,7 +56,8 @@
         ?>
     </div>
     <div class="tab-pane" id="xiekuabao">
-         <?php
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=wxiekuabao">更多斜挎包</a></div>
+        <?php
             // 显示斜挎包
             $root_2 = 'prod_img/wxiekuabao/';   
             $sql = "select * from wxiekuabao where score<3999 order by score desc , mallID limit 0, ".$rowSize; 
@@ -83,6 +84,7 @@
         ?>
     </div>
     <div class="tab-pane" id="shoutibao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=wshoutibao">更多手提包</a></div>
         <?php
             // 显示手提包
             $root_3 = 'prod_img/wshoutibao/';   
@@ -108,6 +110,7 @@
         ?>
     </div>
     <div class="tab-pane" id="shounabao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=wshounabao">更多手拿包</a></div>
         <?php
             // 显示手包
             $root_4 = 'prod_img/wshounabao/';   
@@ -133,6 +136,7 @@
         ?>
     </div>
     <div class="tab-pane" id="shuangjianbao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=wshuangjianbao">更多双肩包</a></div>
         <?php
             // 显示双肩包
             $root_5 = 'prod_img/wshuangjianbao/';   

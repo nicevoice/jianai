@@ -29,8 +29,9 @@
 </ul>
 <div class="tab-content">
     <div class="tab-pane active" id="laganxiang">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=glaganxiang">更多拉杆箱</a></div>
         <?php
-            // 显示单肩包
+            // 显示拉杆箱
             $sql = "select * from glaganxiang where score<3999 order by score desc, mallID limit 0, ".$rowSize; 
             $query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
             while($row=mysql_fetch_row($query))
@@ -52,6 +53,7 @@
         ?>
     </div>
     <div class="tab-pane" id="lvxingbao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=glvxingbao">更多旅行包</a></div>
         <?php
             //  显示旅行包
             $sql = "select * from glvxingbao where score<3999 order by score desc , mallID limit 0, ".$rowSize; 
@@ -75,6 +77,7 @@
         ?>
     </div>
     <div class="tab-pane" id="yundongbao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=gyundongbao">更多运动包</a></div>
         <?php
             //  显示运动包
             $sql = "select * from gyundongbao where score<3999 order by score desc , mallID limit 0, ".$rowSize; 

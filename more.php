@@ -1,7 +1,5 @@
 <?php
- require "conn.php"; 
-  mb_internal_encoding('UTF-8');
-  
+ include 'header.php';
   // 获取参数
   //类型
   if(isset($_GET['tt']))
@@ -52,90 +50,37 @@
  $bagChineseName = array('wdanjianbao'=>'女式单肩包','wxiekuabao'=>'女式斜挎包','wshoutibao'=>'女式手提包','wshuangjianbao'=>'女式双肩包','wshounabao'=>'女式手拿包',
                          'mdanjianbao'=>'男式单肩包','mgongwenbao'=>'男式公文包','mqianbao_yaobao'=>'男式钱包','mshounabao'=>'男式手包',
 						 'glaganxiang'=>'拉杆箱','glvxingbao'=>'旅行包','gyundongbao'=>'运动包'); 
-  ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>荐爱网: 所荐即所爱</title>
-<link rel="stylesheet" type="text/css" href="css/style_showbox.css"/>
-<link href="css/brand_more.css" type="text/css" rel="stylesheet"/>
- <link rel="stylesheet" type="text/css" href="css/paginate.css">
- 
-<script type="text/javascript" src="include/style/jquery-1.3.2.min.js"></script>  
+?>
+
+<link rel="stylesheet" href="css/brand_more.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="css/paginate.css">
+<link rel="stylesheet" type="text/css" href="css/css_menu/pro_dropline_1.css" />
+
 <script src="js/popup_layer.js" type="text/javascript" language="javascript"></script>
-<link rel="stylesheet" media="all" type="text/css" href="css/css_menu/pro_dropline_1.css" />
-<script src="css/css_menu/stuHover.js" type="text/javascript"></script>
-<script language="javascript">
-		$(document).ready(function() {
-			//示例1，默认弹出层
-			new PopupLayer({trigger:"#ele1",popupBlk:"#blk1",closeBtn:"#close1"});
-		});
-			
-</script>
 
 <script language="javascript">
- function select(mm,bb,pp)
-  {
-    var url = "more.php?tt=";
-	url = url+ "<?php echo $bagtype; ?>" +"&mm="+mm+"&bb="+bb+"&pp="+pp;
-	window.location.href= url;
-  }
+	$(document).ready(function() {
+		//示例1，默认弹出层
+		new PopupLayer({trigger:"#ele1",popupBlk:"#blk1",closeBtn:"#close1"});
+	});
+    function select(mm,bb,pp){
+        var url = "more.php?tt=";
+    	url = url+ "<?php echo $bagtype; ?>" +"&mm="+mm+"&bb="+bb+"&pp="+pp;
+    	window.location.href= url;
+    }
 </script>
-    
-</head>
- 
-
-<body>
-
-<div id="top_navigation">    </div>  
-    
-<div id="main_container">
-  <div class="top_bar"> 
-   <div class="top_menu">
-            <div id="nav">
-<ul class="select">
-<li><a href="index.php"><b>首页</b></a></li>
-<li><a href="women.php"><b>女包</b></a>
-	<ul class="sub">
-		<li><a href="more.php?tt=wdanjianbao">单肩包</a></li>
-		<li><a href="more.php?tt=wxiekuabao">斜挎包</a></li>
-		<li><a href="more.php?tt=wshoutibao">手提包</a></li>
-		<li><a href="more.php?tt=wshounabao">手拿包</a></li>
-        <li><a href="more.php?tt=wshuangjianbao">双肩包</a></li>
-	</ul>
-</li>
-
-<li><a href="men.php"><b>男包</b></a>
-	<ul class="sub">
-		<li><a href="more.php?tt=mdanjianbao">单肩包</a></li>
-		<li><a href="more.php?tt=mgongwenbao">公文包</a></li>
-		<li><a href="more.php?tt=mqianbao_yaobao">钱包</a></li>
-		<li><a href="more.php?tt=mshounabao">手拿包</a></li>
-     </ul>
-</li>
-
-<li><a href="xiangbao.php"><b>箱包</b></a>
-	<ul class="sub">
-		<li><a href="more.php?tt=glaganxiang">拉杆箱</a></li>
-		<li><a href="more.php?tt=glvxingbao">旅行包</a></li>
-		<li><a href="more.php?tt=gyundongbao">运动包</a></li>
-	</ul>
-</li>
-<li><a href="search.php"><b>搜索</b></a>
-<li><a href="precomm.php"><b>个性化服务</b></a>
-</ul>
-</div>
-      </div>
-    <img src="images/logo.jpg" style="padding:5px 0 0 360px"/>
-   </div>  <!-- end of top_bar -->
    
    <div id="main_content"> 
-    
-    <div class="center_content">
-   <div class="center_title_bar"><?php echo $bagChineseName[$bagtype]; ?>（点击包包图像，我们将为你推荐风格相似的包包）</div>
-   <img src="images/bar_bg_4.jpg" style="padding:0px" />
-   <div class="spread"> 
+   <div class="center_content">
+   <div class="lead">
+       <h4>
+           <i class="icon-search"></i>
+           <?php echo $bagChineseName[$bagtype]; ?>（点击包包图像，点击图片获得相似产品）</h4>
+   </div>
+   
+   <div class="well form-inline">
+
+   <div class="spread clearfix"> 
          <ul style="padding:5px"> 
             <li style="font-weight:bold">商家：</li>
             <li id="1000"><a href="#" onclick="select('1000','<?php echo $bb; ?>','<?php echo $pp; ?>')">不限</a> </li>
@@ -152,9 +97,8 @@
           </ul>      
    </div>  <!-- end of spread  -->
    
-   <div> ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
     
-   <div class="spread"> 
+   <div class="spread clearfix"> 
          <ul style="padding:5px"> 
             <li style="font-weight:bold">品牌：</li>
              <li id="b0"><a href="#" onclick="select('<?php echo $mm; ?>','0-300','<?php echo $pp; ?>')">不限</a> </li>
@@ -177,11 +121,11 @@
 			$brand = $row[0] .'-'.$row[0];
 			echo '<li id="'.$brandID.'"><a href="#" onclick="select(\''.$mm.'\',\''.$brand.'\',\''.$pp.'\')">'.$row[1].'</a></li>';	   	
 			$count++;
-			if($count>10)
+			if($count>9)
 			  break;	   	
 	    }
 	     
-		 if($count>10)
+		 if($count>9)
 	        echo '<li id="ele1" class="tigger">更多</li>';
 	  	?>     
        </ul>      
@@ -193,36 +137,36 @@
                 <a href="javascript:void(0)" id="close1" class="closeBtn">关闭</a>
                 <ul>
      <?php
-	  if($count>10)
-	  {	
-	   while($row=mysql_fetch_row($query))
-	   {
-	    $brandID = 'b'.$row[0];
-	    $brand = $row[0] .'-'.$row[0];
-	    echo '<li id="'.$brandID.'"><a href="#" onclick="select(\''.$mm.'\',\''.$brand.'\',\''.$pp.'\')">'.$row[1].'</a></li>';	   	
-       }
-	  }
-    ?>                   
+    if ($count > 9) {
+        while ($row = mysql_fetch_row($query)) {
+            $brandID = 'b' . $row[0];
+            $brand = $row[0] . '-' . $row[0];
+            echo '
+<li id="' . $brandID . '">
+    <a href="#" onclick="select(\'' . $mm . '\',\'' . $brand . '\',\'' . $pp . '\')">' . $row[1] . '</a>
+</li>';
+        }
+    }
+?>                 
                 </ul>
             </div>
             <div class="foot"><div class="foot-right"></div></div>
         </div>  <!-- end of blk1  -->
-   
-   <div> ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
-   <div class="spread"> 
+
+   <div class="spread clearfix"> 
          <ul style="padding:5px"> 
             <li style="font-weight:bold">价格：</li>
-             <li id="p0"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','0-1000000')">不限</a> </li>
-   <li id="p1" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','1-100')">1-100元</a> </li>
-   <li id="p100" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','100-300')">100-300元</a> </li>
-   <li id="p300" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','300-500')">300-500元</a> </li>
-   <li id="p500" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','500-1000')">500-1000元</a> </li>
-   <li id="p1000" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','1000-5000')">1000-5000元</a> </li>
-   <li id="p5000" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','5000-1000000')">5000元以上</a> </li>
+            <li id="p0"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','0-1000000')">不限</a> </li>
+            <li id="p1" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','1-100')">1-100元</a> </li>
+            <li id="p100" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','100-300')">100-300元</a> </li>
+            <li id="p300" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','300-500')">300-500元</a> </li>
+            <li id="p500" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','500-1000')">500-1000元</a> </li>
+            <li id="p1000" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','1000-5000')">1000-5000元</a> </li>
+            <li id="p5000" style="width:90px"><a href="#" onclick="select('<?php echo $mm; ?>','<?php echo $bb; ?>','5000-1000000')">5000元以上</a> </li>
           </ul>      
    </div>  <!-- end of spread  -->
-   <div> ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
-           
+   
+    </div>
  <?php
 
 function dynamic_substr($str)
@@ -366,21 +310,7 @@ function dynamic_substr($str)
    
    
    
-   <div class="footer">
-     <div class="left_footer">
-       <a href="#">首页</a>
-       <a href="about.html">关于我们</a>
-       <a href="#">联系我们</a>
-       <a href="#">广告服务</a>
-       <a href="#">诚聘英才</a>
-       </div>   
-     </div>                 
-
-
-</div>
-<!-- end of main_container -->
-
-
-</body>
-</html>
+<?php
+    include 'footer.php';
+?>
 

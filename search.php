@@ -1,15 +1,17 @@
 <?php
     include 'header.php'; 
 ?> 
-<div id="main_content"> 
-    <div class="center_content">
-<?php
-   	echo '	<div class="division_title_bar">输入图像 个性化推荐</div>';
-	echo ' <img src="images/bar_bg_4.jpg" style="padding:0px" />';
-	include('include/search_tab.htm');   
-?>
-    </div><!-- end of center content --><!-- end of right content -->   
-</div><!-- end of main content -->
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#upload" data-toggle="tab">从电脑上传图片</a></li>
+  <li><a href="#web" data-toggle="tab">网络获取图片</a></li>
+  <li><a href="#text" data-toggle="tab">文本搜索</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="upload"></div>
+    <div class="tab-pane" id="web"></div>
+    <div class="tab-pane" id="text"></div>
+</div>
 
 <?php
     include 'footer.php';

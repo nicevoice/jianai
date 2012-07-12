@@ -37,6 +37,7 @@
 </ul>
 <div class="tab-content">
     <div class="tab-pane active" id="danjianbao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=mdanjianbao">更多单肩包</a></div>
         <?php
         // 显示单肩包
         $sql = "select * from mdanjianbao where score<3999 order by score desc, mallID limit 0, ".$rowSize; 
@@ -60,6 +61,7 @@
     ?>
     </div>
     <div class="tab-pane" id="gongwenbao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=mgongwenbao">更多公文包</a></div>
         <?php
         //  显示男士公文包
         $sql = "select * from mgongwenbao where score<3999 order by score desc , mallID limit 0, ".$rowSize; 
@@ -85,6 +87,7 @@
     ?>
     </div>
     <div class="tab-pane" id="qianbao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=mqianbao_yaobao">更多钱包</a></div>
         <?php
         //  显示男士钱包腰包
         $sql = "select * from mqianbao_yaobao where score<3999 order by score desc , mallID limit 0, ".$rowSize; 
@@ -108,6 +111,7 @@
     ?>
     </div>
     <div class="tab-pane" id="shounabao">
+        <div align="right"><a class="btn btn-danger" href="more.php?tt=mshounabao">更多手拿包</a></div>
         <?php
         // 显示手包
         $sql = "select * from mshounabao where score<3999 order by score desc , mallID  limit 0, ".$rowSize; 

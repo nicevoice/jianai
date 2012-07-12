@@ -11,14 +11,11 @@
 		<link rel="stylesheet" type="text/css" href="css/style_showbox.css"/>
 		<link rel="stylesheet" type="text/css" href="css/menu.css" />
 		<link rel="stylesheet" type="text/css" href="include/style/tabStyle.css" />
-
+        <link rel="stylesheet" media="all" type="text/css" href="css/css_menu/pro_dropline_1.css" />
+        
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<!--
-		<script type="text/javascript" src="include/style/ui.tab.js"></script>
-		-->
-		<link rel="stylesheet" media="all" type="text/css" href="css/css_menu/pro_dropline_1.css" />
-		<script src="css/css_menu/stuHover.js" type="text/javascript"></script>
+		<script type="text/javascript" src="css/css_menu/stuHover.js"></script>
 	</head>
 	<body>
 		<div id="main_container">
@@ -56,7 +53,7 @@
 							</li>
 							<li>
 								<a href="search.php"><b>搜索</b></a>
-								<li><a href="precomm.php"><b>个性化服务</b></a></li>
+								<li><a href="precomm.php"><b>浏览记录及推荐</b></a></li>
 						</ul>
 					</div>
 				</div>
