@@ -57,6 +57,6 @@
 						</ul>
 					</div>
 				</div>
-				<img src="images/logo.jpg"/>
+				<a href="index.php"><img src="images/logo.jpg"/></a>
 			</div>
 			<!-- end of top_bar -->
