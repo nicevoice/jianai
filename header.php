@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style_showbox.css"/>
 		<link rel="stylesheet" type="text/css" href="css/menu.css" />
 		<link rel="stylesheet" type="text/css" href="include/style/tabStyle.css" />
-        <link rel="stylesheet" media="all" type="text/css" href="css/css_menu/pro_dropline_1.css" />
+        <link rel="stylesheet" type="text/css" href="css/css_menu/pro_dropline_1.css" />
         
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
