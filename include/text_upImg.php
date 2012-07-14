@@ -27,7 +27,7 @@ $includeFolder = "include";
 
 if(@$_GET["go"]) {
 	 	$bagType = $_GET["type"];	
-					 	
+
 		$sql="select bagID,bagImgURL from ".$bagType." where bagName like '%" .$_POST['text_upImg']. "%' limit 0, 1";
 		$query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
 		$row = mysql_fetch_array($query) ;
@@ -76,8 +76,7 @@ if(@$_GET["go"]) {
 		  
 		 /* -------------------- 开始推荐 ----------------------------*/       
         $path = 'Location: ../recomm2.php?userID=' .$upImgID. '&bagType=' . $bagType. '&imName='.  $upImgID ;
-		 header($path);    
-				   
+		 header($path);
 		} // end if(count($row[0])) 
 	  else
 	    die('没找到您要的包包，请确认输入了完整的包包名， <a href="../index.php">返回</a>');	

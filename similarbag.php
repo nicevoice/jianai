@@ -5,6 +5,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/style_similar.css" />
         <link rel="stylesheet" type="text/css" href="css/menu2.css" />
+         <link rel="stylesheet" type="text/css" href="css/paginate.css">
 
 <script language="javascript">
     function checkstr(id, str, digit) {
@@ -40,7 +41,8 @@
                     <ul class="nav nav-tabs">
                       <li class="active"><a>选中的产品</a></li>
                     </ul>
-                    <?php $mall = array('1001' => '麦包包', '1002' => '京东商城', '1003' => '亚马逊', '1004' => '走秀网', '1005' => '银泰网', '1006' => '凡客诚品', '1007' => '当当网', '1008' => '天猫商城', '1009' => '尊酷网', '1010' => '梦芭莎', '1011' => '新浪商城', '1012' => '爱上包包网');
+                    <?php 
+					$mall = array('1001' => '麦包包', '1002' => '京东商城', '1003' => '亚马逊', '1004' => '走秀网', '1005' => '银泰网', '1006' => '凡客诚品', '1007' => '当当网', '1008' => '天猫商城', '1009' => '尊酷网', '1010' => '梦芭莎', '1011' => '新浪商城', '1012' => '爱上包包网');
 
                     $sql_selected = 'select * from ' . $bagtype . ' where bagID=' . $bagID;
                     $query_selected = mysql_query($sql_selected, $con);
@@ -133,112 +135,175 @@
                     } // end if
                     ?>
                 </div><!-- end of left content -->
-
+     
+     <?php
+  // 计算总的页数，获取当前页数
+	$page = (isset($_GET['page']))? intval($_GET['page']):1;
+		
+	//设置每页显示的数量
+	$pageSize = 15;
+	$adjacents = 3;
+	
+	//获取总的数据量
+	$sql ='select * from sim_'.$bagtype.'  where bagID='.$bagID;
+	$query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
+	$row=mysql_fetch_row($query);
+	
+	if($row[1]>$row[3])    // lbp, hsv 中，选择一个数量较小的作为总的显示数量
+	   $amount = $row[3];
+	else
+	   $amount = $row[1]; 
+	
+	if($amount)
+	{
+	  if($amount < $pageSize)  //如果总数据量小于 pagesize, 那么只有一页
+	     $page_count = 1;
+	  if($amount % $pageSize)
+	     $page_count = (int)($amount/$pageSize)+1; //如果有余数，则需加 1
+	  else
+	     $page_count = $amount/$pageSize;  //如果没有余数	
+	  
+	  if($page_count>20)
+	    $page_count = 20;	    	 
+	}  // end if($amount)
+	else
+	   $page_count = 0;
+ ?>
+     
                 <div class="center_content">
                     <ul class="nav nav-tabs">
                       <li class="active"><a>款式相似的产品</a></li>
                     </ul>
                     <?php //检索相似的包包的ID
-                    $sql = 'select * from similar_' . $bagtype . '  where bagID=' . $bagID;
-                    $query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error());
-                    $row = mysql_fetch_row($query);
-
-                    //显示款式相似的包包
-                    $root = 'prod_img/' . $bagtype . '/';
-
-                    for ($k = 1; $k <= 15; $k++) {
-                        $sql_lbp = 'select * from ' . $bagtype . ' where bagID=' . $row[$k];
-
-                        $query_lbp = mysql_query($sql_lbp, $con) or die("Invalid query: " . mysql_error());
-                        $row_lbp = mysql_fetch_row($query_lbp);
-
-                        $path = $root . $row_lbp[0] . '.jpg';
-                        $imgID = 'imgID_' . $k;
-                        $imgPath = '<img id="' . $imgID . '" src="' . $row_lbp[4];
-                        $imgPath = $imgPath . '"  border=0 width="148px" height="148px"/>';
-                        echo '<div class="prod_box">';
-                        echo '<div class="product_img"><a href="similarbag.php?type=' . $bagtype . '&id=' . $row_lbp[0] . '">';
-                        echo $imgPath;
-                        echo '<span class="www_zzjs_net"><ul>';
-                        echo '<li id="lbpTitle' . $k . '"></li>';
-                        echo '<li>价格：&yen;' . $row_lbp[2] . '</li><li>商家：' . $mall[$row_lbp[6]] . '</li>';
-                        echo '</ul></span></a></div>';
-                        echo '<div class="bottom_prod_box"></div>';
-                        echo '</div>';
-                        echo '<script> checkstr(\'lbpTitle' . $k . '\',\'' . $row_lbp[1] . '\',22);</script>';
-                    } // end while
-                    ?>
+                    //检索相似的包包的ID
+	                $sim_lbp_ID = explode(",",$row[2]);
+	
+	                //显示款式相似的包包
+	                $root = 'prod_img/'.$bagtype.'/';	
+	                   $start_lbp = ($page-1)*$pageSize;
+	
+                	if($page<$page_count)
+	                       $end_lbp = $start_lbp+$pageSize;
+                   	else                  //如果是最后一页
+	                    $end_lbp =  $amount ;
+					
+					  for($k=$start_lbp;$k<$end_lbp;$k++)
+	                 {
+	         $sql_lbp = 'select * from '. $bagtype.' where bagID=' .$sim_lbp_ID[$k]; 
+	
+	         $query_lbp = mysql_query($sql_lbp, $con) or die("Invalid query: " . mysql_error()); 
+	           $row_lbp = mysql_fetch_row($query_lbp);
+	 
+	          $path = $root.$row_lbp[0].'.jpg'; 
+	          $imgID = 'imgID_' . $k;
+	          $imgPath = '<img id="'.$imgID.'" src="'.$row_lbp[4];
+	          $imgPath = $imgPath. '"  border=0 width="148px" height="148px"/>';
+	       echo  '<div class="prod_box">';
+           echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_lbp[0].'">';
+	       echo    $imgPath;
+	       echo  '<span class="www_zzjs_net"><ul>';
+	       echo  '<li id="lbpTitle'.$k.'"></li>';
+	       echo  '<li>价格：&yen;'.$row_lbp[2].'</li><li>商家：'. $mall[$row_lbp[6]].'</li>';
+	       echo  '</ul></span></a></div>';	
+           echo   '<div class="bottom_prod_box"></div>';             
+  	       echo  '</div>';		
+	       echo '<script> checkstr(\'lbpTitle'.$k.'\',\''.$row_lbp[1].'\',22);</script>';
+	}   // end while
+	 	
+  
+  ?>
 
                     <div><img src="images/division_border.jpg" width="780px" style=" padding:15px 0 5px 0;" />
                     </div>
                     <ul class="nav nav-tabs">
                       <li class="active"><a>颜色相似的产品</a></li>
                     </ul>
-                    <?php
-                    for ($k = 16; $k <= 30; $k++) {
-                        $sql_hsv = 'select * from ' . $bagtype . ' where bagID=' . $row[$k];
-                        $query_hsv = mysql_query($sql_hsv, $con) or die("Invalid query: " . mysql_error());
-                        $row_hsv = mysql_fetch_row($query_hsv);
-
-                        $path = $root . $row_hsv[0] . '.jpg';
-                        $imgID = 'imgID_' . $k;
-                        $imgPath = '<img id="' . $imgID . '" src="' . $row_hsv[4];
-                        $imgPath = $imgPath . '"  border=0 width="148px" height="148px" />';
-                        echo '<div class="prod_box">';
-                        echo '<div class="product_img"><a href="similarbag.php?type=' . $bagtype . '&id=' . $row_hsv[0] . '">';
-                        echo $imgPath;
-                        echo '<span class="www_zzjs_net"><ul>';
-                        echo '<li id="hsvTitle' . $k . '"></li>';
-                        echo '<li>价格：&yen;' . $row_hsv[2] . '</li><li>商家：' . $mall[$row_hsv[6]] . '</li>';
-                        echo '</ul></span></a></div>';
-                        echo '<div class="bottom_prod_box"></div>';
-                        echo '</div>';
-                        echo '<script> checkstr(\'hsvTitle' . $k . '\',\'' . $row_lbp[1] . '\',22);</script>';
-                    } // end while
-                    ?>
+      <?php
+     $sim_hsv_ID = explode(",",$row[4]);
+	
+	//显示颜色相似的包包
+	$root = 'prod_img/'.$bagtype.'/';	
+	$start_hsv = ($page-1)*$pageSize;
+	
+	if($page<$page_count)
+	   $end_hsv = $start_hsv + $pageSize;
+	else                                //如果是最后一页
+	    $end_hsv =  $amount ;
+	
+    for($k=$start_hsv;$k<$end_hsv;$k++)
+	{
+	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$sim_hsv_ID[$k]; 
+	 $query_hsv = mysql_query($sql_hsv, $con) or die("Invalid query: " . mysql_error());  
+	 $row_hsv = mysql_fetch_row($query_hsv);
+	 
+	 $path = $root.$row_hsv[0].'.jpg'; 
+	 $imgID = 'imgID_' . $k;
+	 $imgPath = '<img id="'.$imgID.'" src="'.$row_hsv[4];
+	 $imgPath = $imgPath. '"  border=0 width="148px" height="148px" />';
+	echo  '<div class="prod_box">';
+    echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_hsv[0].'">';
+	echo    $imgPath;
+	echo  '<span class="www_zzjs_net"><ul>';
+	echo  '<li id="hsvTitle'.$k.'"></li>';
+	echo  '<li>价格：&yen;'.$row_hsv[2].'</li><li>商家：'. $mall[$row_hsv[6]].'</li>';
+	echo  '</ul></span></a></div>';	
+    echo   '<div class="bottom_prod_box"></div>';             
+  	echo  '</div>';		
+	echo '<script> checkstr(\'hsvTitle'.$k.'\',\''.$row_lbp[1].'\',22);</script>';
+	}   // end while
+   ?>
 
                     <div><img src="images/division_border.jpg" width="780px" style=" padding:15px 0 5px 0;" />
                     </div>
                     <ul class="nav nav-tabs">
                       <li class="active"><a>您还可能喜欢的产品</a></li>
                     </ul>
-                    <?php
-                    for ($k = 31; $k <= 40; $k++) {
-                        $sql_com = 'select * from ' . $bagtype . ' where bagID=' . $row[$k];
-                        $query_com = mysql_query($sql_com, $con) or die("Invalid query: " . mysql_error());
-                        $row_com = mysql_fetch_row($query_com);
+     <?php
+     $sim_com_ID = explode(",",$row[6]);
+	
+	 $root = 'prod_img/'.$bagtype.'/';	
+	 $start_com = ($page-1)*$pageSize;
+	
+	 if($page<$page_count)
+	   $end_com = $start_com + $pageSize;
+	 else                                //如果是最后一页
+	    $end_com =  $amount ;
+	
+    for($k=$start_com;$k<$end_com;$k++)
+	{
+	 $sql_com = 'select * from '. $bagtype.' where bagID=' .$sim_com_ID[$k]; 
+	 $query_com  = mysql_query($sql_com , $con) or die("Invalid query: " . mysql_error());  
+	 $row_com  = mysql_fetch_row($query_com );
+	 
+	 $path = $root.$row_com[0].'.jpg'; 
+	 $imgID = 'imgID_' . $k;
+	 $imgPath = '<img id="'.$imgID.'" src="'.$row_com[4];
+	 $imgPath = $imgPath. '"  border=0 width="148px" height="148px"/>';
+	echo  '<div class="prod_box">';
+    echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_com[0].'">';
+	echo    $imgPath;
+	echo  '<span class="www_zzjs_net"><ul>';
+	echo  '<li id="comTitle'.$k.'"></li>';
+	echo  '<li>价格：&yen;'.$row_com[2].'</li><li>商家：'. $mall[$row_com [6]].'</li>';
+	echo  '</ul></span></a></div>';	
+    echo   '<div class="bottom_prod_box"></div>';             
+  	echo  '</div>';		
+	echo '<script> checkstr(\'comTitle'.$k.'\',\''.$row_lbp[1].'\',22);</script>';
+	}   // end while  
 
-                        $path = $root . $row_com[0] . '.jpg';
-                        $imgID = 'imgID_' . $k;
-                        $imgPath = '<img id="' . $imgID . '" src="' . $row_com[4];
-                        $imgPath = $imgPath . '"  border=0 width="148px" height="148px"/>';
-                        echo '<div class="prod_box">';
-                        echo '<div class="product_img"><a href="similarbag.php?type=' . $bagtype . '&id=' . $row_com[0] . '">';
-                        echo $imgPath;
-                        echo '<span class="www_zzjs_net"><ul>';
-                        echo '<li id="comTitle' . $k . '"></li>';
-                        echo '<li>价格：&yen;' . $row_com[2] . '</li><li>商家：' . $mall[$row_com[6]] . '</li>';
-                        echo '</ul></span></a></div>';
-                        echo '<div class="bottom_prod_box"></div>';
-                        echo '</div>';
-                        echo '<script> checkstr(\'comTitle' . $k . '\',\'' . $row_lbp[1] . '\',22);</script>';
-                    } // end while
-                    ?>
+  //分页页码显示 
+   echo   ' <div><img src="images/division_border.jpg" width="780px" style=" padding:15px 0 5px 0;" /></div>   ';             
+     include("css/pagination3.php");
+	 $reload = $_SERVER['PHP_SELF'] . '?type='.$bagtype.'&id='.$bagID;
+	 $reload = $reload ."&page_count=" . $page_count;
+	 echo paginate_three($reload, $page, $page_count, $adjacents);
+       ?>
                     <div><img src="images/division_border.jpg" width="780px" style=" padding:15px 0 5px 0;" />
                     </div>
                 </div><!-- end of center content --><!-- end of right content -->
             </div><!-- end of main content -->
 <?php
-    //输出cookie
-    for ($i = $num; $i >= 1; $i--){   //检查是否有重复选择
-        $name = 'browsed_bag_info_' . $i;
-
-        if (isset($_COOKIE[$name]))
-            echo $_COOKIE[$name] . '<br />';
-    }
     ob_end_flush();
-?>
-<?php
-    include 'footer.php';
+	include 'footer.php';
 ?>
 
