@@ -24,7 +24,7 @@
     }
     //获得选择的产品类型
     function getSelectType(){
-        var f=$("#select_f").val();
+        var f=$("#select_w").val();
         var m=$("#select_m").val();
         var g=$("#select_g").val();
         if(f!=0){

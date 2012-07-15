@@ -78,7 +78,7 @@
            <?php echo $bagChineseName[$bagtype]; ?>（点击包包图像，点击图片获得相似产品）</h4>
    </div>
    
-   <div class="well form-inline">
+   <div class="well form-horizontal">
 
    <div class="spread clearfix"> 
          <ul style="padding:5px"> 

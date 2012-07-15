@@ -5,7 +5,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/style_similar.css" />
         <link rel="stylesheet" type="text/css" href="css/menu2.css" />
-         <link rel="stylesheet" type="text/css" href="css/paginate.css">
+        <link rel="stylesheet" type="text/css" href="css/paginate.css">
 
 <script language="javascript">
     function checkstr(id, str, digit) {
