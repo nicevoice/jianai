@@ -20,8 +20,18 @@
     //设置每页显示的数量
     $rowSize = 18;
 ?>
+<script type="text/javascript">
+    // $(document).ready(function(){
+       // $("#wtabs li a").each(function(){
+           // var tab = $(this);
+            // $(tab).mouseover(function(){
+                // $(tab).click();
+            // });
+        // }); 
+    // });
+</script>
 
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" id="wtabs">
   <li class="active"><a href="#danjianbao" data-toggle="tab">女士单肩包排行</a></li>
   <li><a href="#xiekuabao" data-toggle="tab">女式斜挎包排行</a></li>
   <li><a href="#shoutibao" data-toggle="tab">女式手提包排行</a></li>
