@@ -7,7 +7,6 @@
 					<a href="#">诚聘英才</a>
 				</div>
 			</div>
-
 		</div>
 		<!-- end of main_container -->
 	</body>
