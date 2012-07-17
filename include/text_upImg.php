@@ -1,28 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
 <?php
-function file_get_contents_utf8($fn) { 
-    $opts = array( 
-        'http' => array( 
-            'method'=>"GET", 
-            'header'=>"Content-Type: text/html; charset=utf-8" 
-        ) 
-    ); 
+    require "../conn.php";
+    function file_get_contents_utf8($fn) { 
+        $opts = array( 
+            'http' => array( 
+                'method'=>"GET", 
+                'header'=>"Content-Type: text/html; charset=utf-8" 
+            ) 
+        ); 
+    
+        $context = stream_context_create($opts); 
+        $result = @file_get_contents($fn,false,$context); 
+        return $result; 
+    } 
 
-    $context = stream_context_create($opts); 
-    $result = @file_get_contents($fn,false,$context); 
-    return $result; 
-} 
-
-require "../conn.php"; 
-$root = 'C:/PHPnow/htdocs/jian-ai/include/';
-$annexFolder = "upload_Img/";
-$includeFolder = "include";
-
+    $root = 'C:/PHPnow/htdocs/jian-ai/include/';
+    $annexFolder = "upload_Img/";
+    $includeFolder = "include";
 
 
 if(@$_GET["go"]) {
@@ -82,6 +75,3 @@ if(@$_GET["go"]) {
 	    die('没找到您要的包包，请确认输入了完整的包包名， <a href="../index.php">返回</a>');	
   }   // end if
 ?>
-
-</body>
-</html>

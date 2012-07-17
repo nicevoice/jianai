@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style_showbox.css"/>
 		<link rel="stylesheet" type="text/css" href="css/menu.css" />
-		<link rel="stylesheet" type="text/css" href="include/style/tabStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/tabStyle.css" />
         <link rel="stylesheet" type="text/css" href="css/css_menu/pro_dropline_1.css" />
         
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>

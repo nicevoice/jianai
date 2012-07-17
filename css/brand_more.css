@@ -7,7 +7,7 @@ a.closeBtn:hover{color:#fff;border:1px solid #85B6E2;background:#85B6E2;}
 .tigger{display:block;width:80px;padding:10px;text-align:center;background:#fff;border:1px solid #999;color:#333;cursor:pointer;float:left;}
 
 .blk{width:500px;position:relative; right:450px; }
-.blk .head, .blk .head-right, .blk .foot, .blk .foot-right{background:url(images/pop_up_bg.png);overflow:hidden;height:4px;}
+.blk .head, .blk .head-right, .blk .foot, .blk .foot-right{background:url(../images/pop_up_bg.png);overflow:hidden;height:4px;}
 .blk .head{padding-left:4px;}
 .blk .head-right{background-position:right top;}
 .blk .foot{padding-left:4px;background-position:left bottom;_height:3px;}
