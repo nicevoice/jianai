@@ -1,46 +1,85 @@
-/* ================================================================ 
-This copyright notice must be untouched at all times.
+/* ================================================================
+ This copyright notice must be untouched at all times.
 
-The original version of this stylesheet and the associated (x)html
-is available at http://www.stunicholls.com/menu/pro_dropline_1.html
-Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
-This stylesheet and the associated (x)html may be modified in any 
-way to fit your requirements.
-=================================================================== */
+ The original version of this stylesheet and the associated (x)html
+ is available at http://www.stunicholls.com/menu/pro_dropline_1.html
+ Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
+ This stylesheet and the associated (x)html may be modified in any
+ way to fit your requirements.
+ =================================================================== */
 
 #nav {
-height:36px; position:relative; z-index:500;
+    height: 36px;
+    position: relative;
+    z-index: 500;
 }
 #nav .select {
-margin:0; padding:0 0 0 0px; list-style:none; 
+    margin: 0;
+    padding: 0 0 0 0px;
+    list-style: none;
 }
 #nav li {
-float:left; 
+    float: left;
 }
 #nav .select a {
-display:block; height:36px; float:left;  padding:0 5px 10px 5px; text-decoration:none; line-height:25px; white-space:nowrap; color:#09F;
+    display: block;
+    height: 36px;
+    float: left;
+    padding: 0 5px 10px 5px;
+    text-decoration: none;
+    line-height: 25px;
+    white-space: nowrap;
+    color: #09F;
 }
 #nav .select a b {
-display:block; padding:0 5px 10px 5px; 
+    display: block;
+    padding: 0 5px 10px 5px;
 }
 #nav .select li:hover a {
- padding:0px 0px 0px 5px; line-height:27px; cursor:pointer; color:#F9F;
+    padding: 0px 0px 0px 5px;
+    line-height: 27px;
+    cursor: pointer;
+    color: #F9F;
 }
 #nav .select li:hover a b {
-display:block; padding:0px 10px 0px 5px;  cursor:pointer;
+    display: block;
+    padding: 0px 10px 0px 5px;
+    cursor: pointer;
 }
 #nav .sub {
-display:none; margin:0; padding:0 0 0 60px;list-style:none;
+    display: none;
+    margin: 0;
+    padding: 0 0 0 60px;
+    list-style: none;
 }
-#nav .sub li {background:transparent;}
+#nav .sub li {
+    background: transparent;
+}
 #nav .select li:hover .sub {
-height:18px; display:block; position:absolute; float:left; width:750px; top:28px; left:0; text-align:left;
+    height: 18px;
+    display: block;
+    position: absolute;
+    float: left;
+    width: 300px;
+    top: 28px;
+    left: 0;
+    text-align: left;
 }
 #nav .select li:hover .sub li a {
-display:block;height:18px; line-height:16px; float:left; background:transparent url(transparent.gif); 
-padding:0 10px 0px 10px; margin:0; white-space:nowrap; border:1px solid #09F; border-color:#09F #09F #09F #09F;
- color:#888;
+    display: block;
+    height: 18px;
+    line-height: 16px;
+    float: left;
+    background: transparent url(transparent.gif);
+    padding: 0 10px 0px 10px;
+    margin: 0;
+    white-space: nowrap;
+    border: 1px solid #09F;
+    border-color: #09F #09F #09F #09F;
+    color: #888;
 }
 #nav .select li:hover .sub li a:hover {
-color:#F9F;  border-color: #09F #09F #09F #09F; line-height:15px;
+    color: #F9F;
+    border-color: #09F #09F #09F #09F;
+    line-height: 15px;
 }
