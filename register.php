@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<link rel="stylesheet" type="text/css" href="css/menu2.css" />
 		<link rel="stylesheet" type="text/css" href="include/style/tabStyle.css" />
-		<script type="text/javascript" src="include/style/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="include/style/ui.tab.js"></script>
 
 		<script type="text/javascript">

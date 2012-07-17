@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="pro_dropdown_2/pro_dropdown_2.css" />
 <script src="pro_dropdown_2/stuHover.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="include/style/jquery-1.3.2.min.js"></script>  
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>  
 <script type="text/javascript" src="include/style/ui.tab.js"></script>
 
 
