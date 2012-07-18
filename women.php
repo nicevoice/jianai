@@ -21,14 +21,14 @@
     $rowSize = 18;
 ?>
 <script type="text/javascript">
-    // $(document).ready(function(){
-       // $("#wtabs li a").each(function(){
-           // var tab = $(this);
-            // $(tab).mouseover(function(){
-                // $(tab).click();
-            // });
-        // }); 
-    // });
+    $(document).ready(function(){
+       $("#wtabs li a").each(function(){
+           var tab = $(this);
+            $(tab).mouseover(function(){
+                $(tab).click();
+            });
+        }); 
+    });
 </script>
 
 <ul class="nav nav-tabs" id="wtabs">

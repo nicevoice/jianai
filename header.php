@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>飘丝带：个性化风格推荐</title>
+		<title>连连图 -- 个性化风格推荐 | 女包 | 男包 | 箱包</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style_showbox.css"/>
 		<link rel="stylesheet" type="text/css" href="css/menu.css" />
