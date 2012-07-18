@@ -1,6 +1,7 @@
 <?php 
 	mb_internal_encoding('UTF-8');
 	require "conn.php";
+    require "include/config.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,12 +11,14 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style_showbox.css"/>
 		<link rel="stylesheet" type="text/css" href="css/menu.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<link rel="stylesheet" type="text/css" href="css/tabStyle.css" />
         <link rel="stylesheet" type="text/css" href="css/css_menu/pro_dropline_1.css" />
         
 		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="css/css_menu/stuHover.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/stuHover.js"></script>
 	</head>
 	<body>
 		<div id="main_container">

@@ -1,33 +1,13 @@
 <?php
     include ('header.php' );
-    function dynamic_substr($str){
-    //$str = html_entity_decode($str,ENT_NOQUOTES, 'UTF-8');
-    //$str = str_replace('&nbsp;','',$str);
-    $len1 = strlen($str);
-
-    $substr = mb_substr($str, 0, 32);
-    $len2 = strlen($substr);
-    if ($len2 <= 55)
-        $substr = mb_substr($str, 0, 36);
-    if ($len2 >= 70)
-        $substr = mb_substr($str, 0, 26);
-    $len2 = strlen($substr);
-    if ($len2 < $len1)
-        $substr = $substr . '...';
-    return $substr;
-    }
-    $mall = array('1001'=>
-    '麦包包','1002'=>'京东商城','1003'=>'亚马逊','1004'=>'走秀网','1005'=>'银泰网','1006'=>'凡客诚品',
-        '1007'=>'当当网','1008'=>'天猫商城','1009'=>'尊酷网','1010'=>'梦芭莎','1011'=>'新浪商城','1012'=>'爱上包包网');
-        //设置每页显示的数量
-        $rowSize = 18;
+    include 'include/list_functions.php';
 ?>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#laganxiang" data-toggle="tab">拉杆箱排行</a></li>
   <li><a href="#lvxingbao" data-toggle="tab">旅行包排行</a></li>
   <li><a href="#yundongbao" data-toggle="tab">运动包排行</a></li>
 </ul>
-<div class="tab-content">
+<div class="tab-content items-container">
     <div class="tab-pane active" id="laganxiang">
         <div align="right"><a class="btn btn-danger" href="more.php?tt=glaganxiang">更多拉杆箱</a></div>
         <?php
