@@ -23,7 +23,7 @@
                  ?>
                  <div class="prod_box">
                      <div class="product_img">
-                         <a href="similarbag.php?type=wdanjianbao&id=<?php echo $item->id; ?>">
+                         <a href="similarbag.php?type=<?echo $type;?>&id=<?php echo $item->id; ?>">
                             <?php echo $imgPath; ?>
                             <span class="www_zzjs_net">
                                 <ul>

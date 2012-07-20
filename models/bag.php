@@ -12,7 +12,7 @@
      }
      public function mapping_fields($row){
          $model = new Bag($this->table_name);
-         $model->id = $row['bagId'];
+         $model->id = $row['bagID'];
          $model->name = $row['bagName'];
          $model->price = $row['bagPrice'];
          $model->url = $row['bagUrl'];
