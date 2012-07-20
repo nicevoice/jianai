@@ -93,7 +93,7 @@
 	echo  '<li>价格：&yen;'.$row_lbp[2].'</li><li>商家：'. $mall[$row_lbp[6]].'</li>';
 	echo  '</ul></span></a></div>';	
     echo   '<div class="bottom_prod_box"></div>';             
-  	echo  '</div>';		
+  	echo  '</div>';
 	}   // end while
 	
 	echo ' <img src="images/division_border.jpg" style="padding:15px 0 5px 0;" />';

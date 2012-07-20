@@ -1,5 +1,5 @@
 <?php
-    require "../conn.php";
+    require "../models/conn.php";
     function file_get_contents_utf8($fn) { 
         $opts = array( 
             'http' => array( 
@@ -68,7 +68,7 @@ if(@$_GET["go"]) {
 		 mysql_close($con);    // 关闭连接	
 		  
 		 /* -------------------- 开始推荐 ----------------------------*/       
-        $path = 'Location: ../recomm2.php?userID=' .$upImgID. '&bagType=' . $bagType. '&imName='.  $upImgID ;
+        $path = 'Location: ../search_result.php?userID=' .$upImgID. '&bagType=' . $bagType. '&imName='.  $upImgID ;
 		 header($path);
 		} // end if(count($row[0])) 
 	  else

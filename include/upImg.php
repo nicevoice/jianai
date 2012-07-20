@@ -96,7 +96,7 @@ if(@$_GET["go"]) {
 					  
 		if($flag)
 		 {
-		$path = 'Location: ../recomm2.php?userID=' .$userID. '&bagType=' . $bagType. '&imName='.  $imName ;
+		$path = 'Location: ../search_result.php?userID=' .$userID. '&bagType=' . $bagType. '&imName='.  $imName ;
 		    header($path);    
 		 } 		   
 	  }  // end else  

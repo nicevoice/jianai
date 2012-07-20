@@ -1,7 +1,8 @@
 <?php 
 	mb_internal_encoding('UTF-8');
-	require "conn.php";
-    require "include/config.php";
+	include "models/conn.php";
+    include "models/model.php";
+    include "include/config.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +57,7 @@
 							</li>
 							<li>
 								<a href="search.php"><b>搜索</b></a>
-								<li><a href="precomm.php"><b>浏览记录及推荐</b></a></li>
+								<li><a href="history.php"><b>浏览记录及推荐</b></a></li>
 						</ul>
 					</div>
 				</div>

@@ -15,24 +15,20 @@
         <div align="right"><a class="btn btn-danger" href="more.php?tt=wdanjianbao">更多单肩包</a></div>
         <?php
             // 显示单肩包
-            $root_1 = 'prod_img/wdanjianbao/';  
-            $sql = "select * from wdanjianbao where score<3999 order by score desc, mallID limit 0, ".$rowSize; 
-            $query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
-            while($row=mysql_fetch_row($query)){
-             $path = $root_1.$row[0].'.jpg'; 
-             $imgID = 'imgID_' . $row[0];
-             $imgPath = '<img id="'.$imgID.'" src="'.$row[4];
-             $imgPath = $imgPath. '"  border=0 width="160px" height="160px"/>';
+            $wdanjianbao = new Model('wdanjianbao');
+            $result = $wdanjianbao->query($rowSize);
+            foreach( $result as $item ){
+             $imgPath = '<img id=imgID_"'.$item->id.'" src="'.$item->img_url.'" border=0 width="160px" height="160px"/>';
              ?>
              <div class="prod_box">
                  <div class="product_img">
-                     <a href="similarbag.php?type=wdanjianbao&id=<?php echo $row[0]; ?>">
+                     <a href="similarbag.php?type=wdanjianbao&id=<?php echo $item->id; ?>">
                         <?php echo $imgPath; ?>
                         <span class="www_zzjs_net">
                             <ul>
-                                <li><?php echo dynamic_substr($row[1]); ?></li>
-                                <li>价格：&yen;<?php echo $row[2]; ?></li>
-                                <li>商家：<?php echo $mall[$row[6]] ?></li>
+                                <li><?php echo dynamic_substr($item->name); ?></li>
+                                <li>价格：&yen;<?php echo $item->price; ?></li>
+                                <li>商家：<?php echo $mall[$item->mall_id] ?></li>
                             </ul>
                         </span>
                      </a>
@@ -49,7 +45,7 @@
             $sql = "select * from wxiekuabao where score<3999 order by score desc , mallID limit 0, ".$rowSize; 
             $query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
             while($row=mysql_fetch_row($query))
-            {    
+            {
              $path = $root_2.$row[0].'.jpg'; 
              $imgID = 'imgID_' . $row[0];
              $imgPath = '<img id="'.$imgID.'" src="'.$row[4];
