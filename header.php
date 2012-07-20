@@ -1,8 +1,7 @@
 <?php 
 	mb_internal_encoding('UTF-8');
-	include "models/conn.php";
-    include "models/bag.php";
-    include "include/config.php";
+	require_once "models/conn.php";
+    require_once "models/bag.php";
 ?>
 <!DOCTYPE html>
 <html>

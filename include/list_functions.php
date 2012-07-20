@@ -10,6 +10,10 @@ $mall = array('1001' => '麦包包', '1002' => '京东商城', '1003' => '亚马
             '1004' => '走秀网', '1005' => '银泰网', '1006' => '凡客诚品', 
             '1007' => '当当网', '1008' => '天猫商城', '1009' => '尊酷网', 
             '1010' => '梦芭莎', '1011' => '新浪商城', '1012' => '爱上包包网');
+//各种包的类型，今后需要把数据库合并，抽象出一个类型字段
+$women_bag_types = array('wdanjianbao','wxiekuabao','wshoutibao','wshounabao','wshuangjianbao');
+$men_bag_types = array('mdanjianbao','mgongwenbao','mqianbao_yaobao','mshounabao');
+$gn_bag_types = array('glaganxiang','glvxingbao','gyundongbao');
 //设置每页显示的数量
 $rowSize = 30;
 //截取商品标题
