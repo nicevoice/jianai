@@ -15,7 +15,7 @@
         <div align="right"><a class="btn btn-danger" href="more.php?tt=wdanjianbao">更多单肩包</a></div>
         <?php
             // 显示单肩包
-            $wdanjianbao = new Model('wdanjianbao');
+            $wdanjianbao = new Bag('wdanjianbao');
             $result = $wdanjianbao->query($rowSize);
             foreach( $result as $item ){
              $imgPath = '<img id=imgID_"'.$item->id.'" src="'.$item->img_url.'" border=0 width="160px" height="160px"/>';

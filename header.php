@@ -1,7 +1,7 @@
 <?php 
 	mb_internal_encoding('UTF-8');
 	include "models/conn.php";
-    include "models/model.php";
+    include "models/bag.php";
     include "include/config.php";
 ?>
 <!DOCTYPE html>
