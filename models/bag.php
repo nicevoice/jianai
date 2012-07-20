@@ -15,7 +15,7 @@
          $model->id = $row['bagID'];
          $model->name = $row['bagName'];
          $model->price = $row['bagPrice'];
-         $model->url = $row['bagUrl'];
+         $model->url = $row['bagURL'];
          $model->img_url = $row['bagImgURL'];
          $model->mall_id = $row['mallID'];
          $model->brand_id = $row['brandID'];
