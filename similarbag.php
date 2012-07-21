@@ -39,7 +39,7 @@
             <div id="main_content">
                 <div class="left_content">
                     <ul class="nav nav-tabs">
-                      <li class="active"><a>选中的产品</a></li>
+                      <li class="active"><a>选中的包包</a></li>
                     </ul>
                     <?php 
 					$mall = array('1001' => '麦包包', '1002' => '京东商城', '1003' => '亚马逊', '1004' => '走秀网', '1005' => '银泰网', '1006' => '凡客诚品', '1007' => '当当网', '1008' => '天猫商城', '1009' => '尊酷网', '1010' => '梦芭莎', '1011' => '新浪商城', '1012' => '爱上包包网');
@@ -100,7 +100,7 @@
                     </div>
                     <div>
                          <ul class="nav nav-tabs">
-                          <li class="active"><a>刚刚浏览过的产品</a></li>
+                          <li class="active"><a>刚刚浏览过的包包</a></li>
                         </ul>
                     </div>
                     <?php
@@ -172,7 +172,7 @@
      
                 <div class="center_content">
                     <ul class="nav nav-tabs">
-                      <li class="active"><a>款式相似的产品</a></li>
+                      <li class="active"><a>款式相似的包包</a></li>
                     </ul>
                     <?php //检索相似的包包的ID
                     //检索相似的包包的ID
@@ -216,7 +216,7 @@
                     <div><img src="images/division_border.jpg" width="780px" style=" padding:15px 0 5px 0;" />
                     </div>
                     <ul class="nav nav-tabs">
-                      <li class="active"><a>颜色相似的产品</a></li>
+                      <li class="active"><a>颜色相似的包包</a></li>
                     </ul>
       <?php
      $sim_hsv_ID = explode(",",$row[4]);
@@ -256,7 +256,7 @@
                     <div><img src="images/division_border.jpg" width="780px" style=" padding:15px 0 5px 0;" />
                     </div>
                     <ul class="nav nav-tabs">
-                      <li class="active"><a>您还可能喜欢的产品</a></li>
+                      <li class="active"><a>您还可能喜欢的包包</a></li>
                     </ul>
      <?php
      $sim_com_ID = explode(",",$row[6]);

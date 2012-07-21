@@ -2,7 +2,7 @@
 include ('header.php');
 ?>
 <div class="well" align="center" style="background-color: white">
-	<img height="240" src="images/icons/showcase.png" />
+	<img height="240" src="images/icons/showcase.gif" />
 </div>
 <div class="row-fluid">
 	<ul class="thumbnails">

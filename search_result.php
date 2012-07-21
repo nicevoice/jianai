@@ -44,7 +44,7 @@
    <div id="main_content"> 
    <div class="center_content">
    <ul class="nav nav-tabs">
-      <li class="active"><a>款式相似的产品</a></li>
+      <li class="active"><a>款式相似的包包</a></li>
    </ul>
  <?php
  
@@ -101,7 +101,7 @@
 ?>
  
    <ul class="nav nav-tabs">
-      <li class="active"><a>颜色相似的产品</a></li>
+      <li class="active"><a>颜色相似的包包</a></li>
    </ul>
      
  <?php  
@@ -129,7 +129,7 @@
   ?>
   
   <ul class="nav nav-tabs">
-      <li class="active"><a>您还可能喜欢的产品</a></li>
+      <li class="active"><a>您还可能喜欢的包包</a></li>
    </ul>
      
  <?php  

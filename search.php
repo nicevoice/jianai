@@ -117,7 +117,7 @@
     <div class="tab-pane" id="text">
         <div class="form-horizontal">
             <div class="control-group">
-                <label class="control-label" for="uploadFile">产品名称:</label>
+                <label class="control-label" for="uploadFile">包包名称:</label>
                 <div class="controls">
                     <form name="text_img_form" method="post">
                         <input type="text" name="text_upImg" id="text_img" class="input-large" />    

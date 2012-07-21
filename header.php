@@ -2,6 +2,8 @@
 	mb_internal_encoding('UTF-8');
 	require_once "models/conn.php";
     require_once "models/bag.php";
+    $root = 'C:/PHPnow/htdocs/jian-ai/include/';
+    echo dirname(__FILE__);
 ?>
 <!DOCTYPE html>
 <html>

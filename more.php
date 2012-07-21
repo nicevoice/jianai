@@ -75,7 +75,7 @@
    <div class="lead">
        <h4>
            <i class="icon-search"></i>
-           <?php echo $bagChineseName[$bagtype]; ?>（点击包包图像，点击图片获得相似产品）</h4>
+           <?php echo $bagChineseName[$bagtype]; ?>（点击包包图像，点击图片获得相似包包）</h4>
    </div>
    
    <div class="well form-horizontal">

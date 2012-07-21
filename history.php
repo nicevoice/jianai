@@ -9,7 +9,7 @@
 				<div class="left_content">
 					<div>
 						<ul class="nav nav-tabs">
-                          <li class="active"><a>刚刚浏览过的产品</a></li>
+                          <li class="active"><a>刚刚浏览过的包包</a></li>
                         </ul>
 					</div>
 					<?php
@@ -124,7 +124,7 @@
    ?>
    <div>
         <ul class="nav nav-tabs">
-          <li class="active"><a>给您推荐的产品</a></li>
+          <li class="active"><a>给您推荐的包包</a></li>
         </ul>
     </div>
     <?php

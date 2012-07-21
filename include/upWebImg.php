@@ -86,8 +86,8 @@ class UPImages {
  }
 
 
-//$root = 'D:/tools/PHPnow-1.5.6/htdocs/jian-ai/include/upload_Img/';
-$root = 'C:/PHPnow/htdocs/jian-ai/include/upload_Img/';
+//$root = 'C:/PHPnow/htdocs/jian-ai/include/upload_Img/';
+$root = dirname(__FILE__).'/upload_Img/';
 $annexFolder = "upload_Img";
 $smallFolder = "resizeImg";
 $includeFolder = "include";

@@ -13,7 +13,8 @@
         return $result; 
     } 
 
-    $root = 'C:/PHPnow/htdocs/jian-ai/include/';
+    //$root = 'C:/PHPnow/htdocs/jian-ai/include/';
+    $root = dirname(__FILE__).'/';
     $annexFolder = "upload_Img/";
     $includeFolder = "include";
 
