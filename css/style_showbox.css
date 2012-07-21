@@ -26,16 +26,12 @@ p {
 }
 .top_bar {
     width: 1000px;
-    height: 60px;
-    background-color: #FFF;
+    margin: 5px 0 10px 0;
 }
 
 .top_menu {
     height: 25px;
-    margin: 0px 0px 0 0;
-    _margin: 0px 0px 0 0;
     float: right;
-    /*background:url(images/top_search_bg.gif) no-repeat center; */
 }
 
 .top_text {

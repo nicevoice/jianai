@@ -22,7 +22,7 @@
 	</head>
 	<body>
 		<div id="main_container">
-			<div class="top_bar" style="height:90px;margin: 5px 0 10px 0">
+			<div class="top_bar" align="center">    
 				<div class="top_menu">
 					<div id="nav">
 						<ul class="select">
@@ -60,6 +60,8 @@
 						</ul>
 					</div>
 				</div>
-				<a href="index.php"><img src="images/icons/logo.png"/></a>
+				<div style="padding-left: 250px;">
+				    <a href="index.php"><img src="images/icons/logo.png"/></a>
+				</div>
 			</div>
 			<!-- end of top_bar -->
