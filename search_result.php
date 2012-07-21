@@ -5,7 +5,6 @@
 ?>
 <link rel="stylesheet" type="text/css" href="css/menu2.css" />
 
-
 <script language="javascript">
     lastScrollY=0;
     function heartBeat(){
@@ -23,7 +22,6 @@
     else 
        percent=Math.floor(percent);
        
-    
     document.getElementById("scrollDIV").style.top=parseInt(document.getElementById("scrollDIV").style.top)+percent+"px";
     lastScrollY=lastScrollY+percent;
     //alert(lastScrollY);

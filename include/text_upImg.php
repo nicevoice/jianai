@@ -47,7 +47,7 @@ if(@$_GET["go"]) {
 		    $sql_search = $sql_search . $row_similar[$i]. ",";
 			
 		$sql_search = $sql_search . $row_similar[12].")";
-		 echo $sql_search;
+		// echo $sql_search;
 		$query_search = mysql_query($sql_search, $con) or die("Invalid query: " . mysql_error()); 
 		
 		//hsv 部分
