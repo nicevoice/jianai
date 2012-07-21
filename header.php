@@ -3,7 +3,6 @@
 	require_once "models/conn.php";
     require_once "models/bag.php";
     $root = 'C:/PHPnow/htdocs/jian-ai/include/';
-    echo dirname(__FILE__);
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,7 +61,7 @@
 						</ul>
 					</div>
 				</div>
-				<div style="padding-left: 250px;">
+				<div style="padding-left: 280px;">
 				    <a href="index.php"><img src="images/icons/logo.png"/></a>
 				</div>
 			</div>
