@@ -2,7 +2,6 @@
     ob_start();
     include 'header.php';
 ?>
-
         <link rel="stylesheet" type="text/css" href="css/style_similar.css" />
         <link rel="stylesheet" type="text/css" href="css/menu2.css" />
         <link rel="stylesheet" type="text/css" href="css/paginate.css">
@@ -42,7 +41,13 @@
                       <li class="active"><a>选中的包包</a></li>
                     </ul>
                     <?php 
-					$mall = array('1001' => '麦包包', '1002' => '京东商城', '1003' => '亚马逊', '1004' => '走秀网', '1005' => '银泰网', '1006' => '凡客诚品', '1007' => '当当网', '1008' => '天猫商城', '1009' => '尊酷网', '1010' => '梦芭莎', '1011' => '新浪商城', '1012' => '爱上包包网');
+					$mall = array();
+                    $mall_query = mysql_query("select mallID,mallName from mall_list") or die("Invalid query: " . mysql_error());
+                    while($row=mysql_fetch_array($mall_query)){
+                        $key = $row['mallID'];
+                        $value = $row['mallName'];
+                        $mall[$key] = $value;
+                    }
 
                     $sql_selected = 'select * from ' . $bagtype . ' where bagID=' . $bagID;
                     $query_selected = mysql_query($sql_selected, $con);
@@ -81,16 +86,16 @@
                         {
                             $num = $num + 1;
                             $cookieName = 'browsed_bag_info_' . $num;
-                            setcookie('browsed_bag_num', $num, time() + 300);
+                            setcookie('browsed_bag_num', $num, time() + 3000);
                             // cookie的时间
-                            setcookie($cookieName, $cookieValue, time() + 300);
+                            setcookie($cookieName, $cookieValue, time() + 3000);
                         } // end if
                     } else//如果浏览的包包只有一个
                     {
                         $cookieName = 'browsed_bag_info_1';
                         $cookieValue = $bagtype . '@' . $row_selected[4];
-                        setcookie('browsed_bag_num', 1, time() + 300);
-                        setcookie($cookieName, $cookieValue, time() + 300);
+                        setcookie('browsed_bag_num', 1, time() + 3000);
+                        setcookie($cookieName, $cookieValue, time() + 3000);
                     }
                     ?>
 
@@ -201,7 +206,7 @@
 	       echo  '<div class="prod_box">';
            echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_lbp[0].'">';
 	       echo    $imgPath;
-	       echo  '<span class="www_zzjs_net"><ul>';
+	       echo  '<span class="prod_info"><ul>';
 	       echo  '<li id="lbpTitle'.$k.'"></li>';
 	       echo  '<li>价格：&yen;'.$row_lbp[2].'</li><li>商家：'. $mall[$row_lbp[6]].'</li>';
 	       echo  '</ul></span></a></div>';	
@@ -243,7 +248,7 @@
 	echo  '<div class="prod_box">';
     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_hsv[0].'">';
 	echo    $imgPath;
-	echo  '<span class="www_zzjs_net"><ul>';
+	echo  '<span class="prod_info"><ul>';
 	echo  '<li id="hsvTitle'.$k.'"></li>';
 	echo  '<li>价格：&yen;'.$row_hsv[2].'</li><li>商家：'. $mall[$row_hsv[6]].'</li>';
 	echo  '</ul></span></a></div>';	
@@ -282,7 +287,7 @@
 	echo  '<div class="prod_box">';
     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_com[0].'">';
 	echo    $imgPath;
-	echo  '<span class="www_zzjs_net"><ul>';
+	echo  '<span class="prod_info"><ul>';
 	echo  '<li id="comTitle'.$k.'"></li>';
 	echo  '<li>价格：&yen;'.$row_com[2].'</li><li>商家：'. $mall[$row_com [6]].'</li>';
 	echo  '</ul></span></a></div>';	

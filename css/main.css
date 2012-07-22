@@ -1,3 +1,7 @@
 .items-container {
     height: 1000px;
 }
+.showcase {
+    background-color: white;
+    height: 230px;
+}

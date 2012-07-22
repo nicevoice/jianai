@@ -47,7 +47,7 @@
 	$pid = 'p'.$p1;
   }
   
- $bagChineseName = array('wdanjianbao'=>'女式单肩包','wxiekuabao'=>'女式斜挎包','wshoutibao'=>'女式手提包','wshuangjianbao'=>'女式双肩包','wshounabao'=>'女式手拿包',
+ $bagChineseName = array('wdanjianbao'=>'女式单肩包','wxiekuabao'=>'女式斜挎包','wshoutibao'=>'女式手提包','wshuangjianbao'=>'女式双肩包','wshounabao'=>'女式手包',
                          'mdanjianbao'=>'男式单肩包','mgongwenbao'=>'男式公文包','mqianbao_yaobao'=>'男式钱包','mshounabao'=>'男式手包',
 						 'glaganxiang'=>'拉杆箱','glvxingbao'=>'旅行包','gyundongbao'=>'运动包'); 
 ?>
@@ -261,7 +261,7 @@ function dynamic_substr($str)
 	echo  '<div class="prod_box">';
     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row[0].'">';
 	echo    $imgPath;
-	echo  '<span class="www_zzjs_net"><ul>';
+	echo  '<span class="prod_info"><ul>';
 	echo  '<li>'.dynamic_substr($row[1]).'</li>';
 	echo  '<li>价格：&yen;'.$row[2].'</li><li>商家：'. $mall[$row[6]].'</li>';
 	echo  '</ul></span></a></div>';	

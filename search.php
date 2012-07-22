@@ -136,7 +136,7 @@
                     <option value="0">请选择</option>
                     <option value="wdanjianbao">女士单肩包</option>
                     <option value="wxiekuabao">女士斜挎包</option>
-                    <option value="wshounabao">女士手拿包</option>
+                    <option value="wshounabao">女士手包</option>
                     <option value="wshoutibao">女士手提包</option>
                     <option value="wshuangjianbao">女士双肩包</option>
                 </select>
@@ -150,7 +150,7 @@
                     <option value="mdanjianbao">男士单肩包</option>
                     <option value="mgognwenbao">男士公文包</option>
                     <option value="myaobao">男士钱包/腰包</option>
-                    <option value="mshounabao">男士手拿包</option>
+                    <option value="mshounabao">男士手包</option>
                 </select>
             </div>
         </div>

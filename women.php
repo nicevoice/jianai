@@ -7,7 +7,7 @@
   <li class="active"><a href="#wdanjianbao" data-toggle="tab">女士单肩包排行</a></li>
   <li><a href="#wxiekuabao" data-toggle="tab">女式斜挎包排行</a></li>
   <li><a href="#wshoutibao" data-toggle="tab">女式手提包排行</a></li>
-  <li><a href="#wshounabao" data-toggle="tab">女式手拿包排行</a></li>
+  <li><a href="#wshounabao" data-toggle="tab">女式手包排行</a></li>
   <li><a href="#wshuangjianbao" data-toggle="tab"> 女式双肩包排行</a></li>
 </ul>
 
@@ -28,7 +28,7 @@
                      <div class="product_img">
                          <a href="similarbag.php?type=<?echo $type;?>&id=<?php echo $item->id; ?>">
                             <?php echo $imgPath; ?>
-                            <span class="www_zzjs_net">
+                            <span class="prod_info">
                                 <ul>
                                     <li><?php echo dynamic_substr($item->name); ?></li>
                                     <li>价格：&yen;<?php echo $item->price; ?></li>

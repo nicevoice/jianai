@@ -25,7 +25,7 @@
                      <div class="product_img">
                          <a href="similarbag.php?type=<?echo $type;?>&id=<?php echo $item->id; ?>">
                             <?php echo $imgPath; ?>
-                            <span class="www_zzjs_net">
+                            <span class="prod_info">
                                 <ul>
                                     <li><?php echo dynamic_substr($item->name); ?></li>
                                     <li>价格：&yen;<?php echo $item->price; ?></li>

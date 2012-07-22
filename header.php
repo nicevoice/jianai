@@ -33,7 +33,7 @@
 									<li><a href="more.php?tt=wdanjianbao">单肩包</a></li>
 									<li><a href="more.php?tt=wxiekuabao">斜挎包</a></li>
 									<li><a href="more.php?tt=wshoutibao">手提包</a></li>
-									<li><a href="more.php?tt=wshounabao">手拿包</a></li>
+									<li><a href="more.php?tt=wshounabao">手包</a></li>
 									<li><a href="more.php?tt=wshuangjianbao">双肩包</a></li>
 								</ul>
 							</li>
@@ -43,7 +43,7 @@
 									<li><a href="more.php?tt=mdanjianbao">单肩包</a></li>
 									<li><a href="more.php?tt=mgongwenbao">公文包</a></li>
 									<li><a href="more.php?tt=mqianbao_yaobao">钱包</a></li>
-									<li><a href="more.php?tt=mshounabao">手拿包</a></li>
+									<li><a href="more.php?tt=mshounabao">手包</a></li>
 								</ul>
 							</li>
 							<li>

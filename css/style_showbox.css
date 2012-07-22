@@ -184,7 +184,7 @@ img.left_bt {
     cursor: pointer;
 }
 
-.product_img a:hover .www_zzjs_net {
+.product_img a:hover .prod_info {
     display: block;
     font-size: 12px;
     padding: 10px 5px 15px 5px;
@@ -201,13 +201,19 @@ img.left_bt {
     height: 60px;
     border-top: 1px solid #999;
 }
-.product_img a:hover .www_zzjs_net span {
+.product_img a:hover .prod_info span {
     display: block;
     margin-bottom: 5px;
 }
-.product_img a .www_zzjs_net {
+.product_img a .prod_info {
     display: none;
 }
+
+.prod_info li {
+    max-height:35px;
+    overflow: hidden;
+}
+
 .product_img a:hover .more {
     visibility: hidden;
 }

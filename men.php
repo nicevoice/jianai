@@ -7,7 +7,7 @@
   <li class="active"><a href="#mdanjianbao" data-toggle="tab">男士单肩包排行</a></li>
   <li><a href="#mgongwenbao" data-toggle="tab">男式斜挎包排行</a></li>
   <li><a href="#mqianbao_yaobao" data-toggle="tab">男式手提包排行</a></li>
-  <li><a href="#mshounabao" data-toggle="tab">男式手拿包排行</a></li>
+  <li><a href="#mshounabao" data-toggle="tab">男式手包排行</a></li>
 </ul>
 <div class="tab-content items-container">
     <?php
@@ -26,7 +26,7 @@
                      <div class="product_img">
                          <a href="similarbag.php?type=<?echo $type;?>&id=<?php echo $item->id; ?>">
                             <?php echo $imgPath; ?>
-                            <span class="www_zzjs_net">
+                            <span class="prod_info">
                                 <ul>
                                     <li><?php echo dynamic_substr($item->name); ?></li>
                                     <li>价格：&yen;<?php echo $item->price; ?></li>

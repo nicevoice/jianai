@@ -35,7 +35,7 @@ if(@$_GET["go"]) {
         @file_put_contents($pic_name, $img_read_fd);
 		
 		//查找相似的包包			
-		 $sql_similar = "select * from similar_".$bagType." where bagID=".$row[0];
+		 $sql_similar = "select * from sim_".$bagType." where bagID=".$row[0];
 		 $query_similar = mysql_query($sql_similar, $con) or die("Invalid query: " . mysql_error());  
 		 $row_similar = mysql_fetch_array($query_similar);
 		 

@@ -14,7 +14,13 @@
 					</div>
 					<?php
 
-						$mall = array('1001' => '麦包包', '1002' => '京东商城', '1003' => '亚马逊', '1004' => '走秀网', '1005' => '银泰网', '1006' => '凡客诚品', '1007' => '当当网', '1008' => '天猫商城', '1009' => '尊酷网', '1010' => '梦芭莎', '1011' => '新浪商城', '1012' => '爱上包包网');
+						$mall = array();
+                        $mall_query = mysql_query("select mallID,mallName from mall_list") or die("Invalid query: " . mysql_error());
+                        while($row=mysql_fetch_array($mall_query)){
+                            $key = $row['mallID'];
+                            $value = $row['mallName'];
+                            $mall[$key] = $value;
+                        }
 
 						if (isset($_COOKIE['browsed_bag_num'])) {
 							$num = $_COOKIE['browsed_bag_num'];
@@ -131,7 +137,7 @@
    //检索相似的包包的ID
      $bagtype = $browsed_info[$i]['type'];
 	 
-    $table = 'similar_'. $bagtype;
+    $table = 'sim_'. $bagtype;
 	$sql = 'select * from '.  $table.' where bagID=' .$browsed_info[$i]['ID']; 
 	$query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
 	$row=mysql_fetch_row($query);
@@ -152,7 +158,7 @@
 	echo  '<div class="prod_box">';
     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_lbp[0].'">';
 	echo    $imgPath;
-	echo  '<span class="www_zzjs_net"><ul>';
+	echo  '<span class="prod_info"><ul>';
 	echo  '<li>'.dynamic_substr($row_lbp[1]).'...</li>';
 	echo  '<li>价格：&yen;'.$row_lbp[2].'</li><li>商家：'. $mall[$row_lbp[6]].'</li>';
 	echo  '</ul></span></a></div>';	
@@ -176,7 +182,7 @@
 	  echo  '<div class="prod_box">';
       echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_hsv[0].'">';
 	  echo    $imgPath;
-	  echo  '<span class="www_zzjs_net"><ul>';
+	  echo  '<span class="prod_info"><ul>';
 	 echo  '<li>'.dynamic_substr($row_hsv[1]).'...</li>';
 	  echo  '<li>价格：&yen;'.$row_hsv[2].'</li><li>商家：'. $mall[$row_hsv[6]].'</li>';
 	  echo  '</ul></span></a></div>';	
@@ -201,7 +207,8 @@
 		</div>
 		<!-- end of main_container -->
 
-		<?php ob_end_flush();
+		<?php 
+		  ob_end_flush();
 		?>
 	</body>
 </html>
