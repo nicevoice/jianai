@@ -8,23 +8,21 @@
 <script language="javascript">
     lastScrollY=0;
     function heartBeat(){
-    var diffY;
-    if (document.documentElement && document.documentElement.scrollTop)
-    diffY = document.documentElement.scrollTop;
-    else if (document.body)
-    diffY = document.body.scrollTop
-    else
-    {/*Netscape stuff*/}
-    
-    percent=.1*(diffY-lastScrollY);
-    if(percent>0)
-        percent=Math.ceil(percent);
-    else 
-       percent=Math.floor(percent);
-       
-    document.getElementById("scrollDIV").style.top=parseInt(document.getElementById("scrollDIV").style.top)+percent+"px";
-    lastScrollY=lastScrollY+percent;
-    //alert(lastScrollY);
+        var diffY;
+        if (document.documentElement && document.documentElement.scrollTop)
+        diffY = document.documentElement.scrollTop;
+        else if (document.body)
+        diffY = document.body.scrollTop
+        else
+        {/*Netscape stuff*/}
+        
+        percent=.1*(diffY-lastScrollY);
+        if(percent>0)
+            percent=Math.ceil(percent);
+        else 
+           percent=Math.floor(percent);
+        document.getElementById("scrollDIV").style.top=parseInt(document.getElementById("scrollDIV").style.top)+percent+"px";
+        lastScrollY=lastScrollY+percent;
     }
     
     suspendImg="<DIV id=\"scrollDIV\" style='right:0px;POSITION:absolute;TOP:69px; background:none'> <ul class='product_title'> 您输入的图片如下：</ul>";
@@ -66,24 +64,21 @@
 	$sql ='select * from img_search where upImgID='.$imgName;
 	$query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
 	$row=mysql_fetch_row($query);
-	
 	// 显示款式相似的包包	
 	$root = 'prod_img/'.$bagtype.'/';	
 	$mall = array();
     $mall_query = mysql_query("select mallID,mallName from mall_list") or die("Invalid query: " . mysql_error());
-    while($row=mysql_fetch_array($mall_query)){
-        $key = $row['mallID'];
-        $value = $row['mallName'];
+    while($mall_row=mysql_fetch_array($mall_query)){
+        $key = $mall_row['mallID'];
+        $value = $mall_row['mallName'];
         $mall[$key] = $value;
     }
-	
-	 for($k=1;$k<=12;$k++)
-	{
+    
+	for($k=1;$k<=12;$k++){
 	 $sql_lbp = 'select * from '. $bagtype.' where bagID=' .$row[$k]; 
-	
+     
 	 $query_lbp = mysql_query($sql_lbp, $con) or die("Invalid query: " . mysql_error()); 
 	 $row_lbp = mysql_fetch_row($query_lbp);
-	 
 	 $path = $root.$row_lbp[0].'.jpg'; 
 	 $imgID = 'imgID_' . $k;
 	 $imgPath = '<img id="'.$imgID.'" src="'.$row_lbp[4];
@@ -100,7 +95,6 @@
 	}   // end while
 	
 	echo ' <img src="images/division_border.jpg" style="padding:15px 0 5px 0;" />';
- 	   
 ?>
  
    <ul class="nav nav-tabs">
@@ -110,7 +104,7 @@
  <?php  
    for($k=13;$k<=24;$k++)
 	{
-	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$row[$k]; 
+	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$row[$k];
 	 $query_hsv = mysql_query($sql_hsv, $con) or die("Invalid query: " . mysql_error());  
 	 $row_hsv = mysql_fetch_row($query_hsv);
 	 
