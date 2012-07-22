@@ -16,12 +16,12 @@
 
 						$mall = array();
                         $mall_query = mysql_query("select mallID,mallName from mall_list") or die("Invalid query: " . mysql_error());
-                        while($row=mysql_fetch_array($mall_query)){
-                            $key = $row['mallID'];
-                            $value = $row['mallName'];
+                        while($mall_row=mysql_fetch_array($mall_query)){
+                            $key = $mall_row['mallID'];
+                            $value = $mall_row['mallName'];
                             $mall[$key] = $value;
                         }
-
+                        
 						if (isset($_COOKIE['browsed_bag_num'])) {
 							$num = $_COOKIE['browsed_bag_num'];
 							$count = 0;
@@ -49,7 +49,6 @@
 									break;
 							}
 						}// end if
-
 						else
 							die('没有您的浏览记录，无法提供个性化的推荐，请先浏览:)');
 
@@ -117,16 +116,13 @@
    for($i=0;$i<count($ind);$i++)
      $shsv[$ind[$i]] = $row[21+$i];
    }
-  return $shsv;
-}
-  
+    return $shsv;
+    }
   $title_idx = array('1'=>'一','2'=>'二','3'=>'三','4'=>'四','5'=>'五','6'=>'六','7'=>'七','8'=>'八');
   $tidx = 1;
-  for($i=0;$i<$browsed_num;$i++)
-  {
+  for($i=0;$i<$browsed_num;$i++){
    if($i>0)
       echo '<div><img src="images/division_border.jpg" width="780px" style=" padding:19px 0 30px 0;" /></div>';
-   
    ?>
    <div>
         <ul class="nav nav-tabs">
@@ -134,44 +130,44 @@
         </ul>
     </div>
     <?php
-   //检索相似的包包的ID
-     $bagtype = $browsed_info[$i]['type'];
-	 
+    //检索相似的包包的ID
+    $bagtype = $browsed_info[$i]['type'];
     $table = 'sim_'. $bagtype;
 	$sql = 'select * from '.  $table.' where bagID=' .$browsed_info[$i]['ID']; 
 	$query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
-	$row=mysql_fetch_row($query);
-		
+	$row=mysql_fetch_array($query);
+    
+    $slbp = explode(",",$row['slbp']);
+    $shsv = explode(",",$row['shsv']);
+    $scom = explode(",",$row['scom']);
+    
 	//显示款式相似的包包
 	$root = 'prod_img/'.$bagtype.'/';	
-	for($k=1;$k<=5;$k++)
-	{
-	 $sql_lbp = 'select * from '. $bagtype.' where bagID=' .$row[$k]; 
-	
-	 $query_lbp = mysql_query($sql_lbp, $con) or die("Invalid query: " . mysql_error()); 
-	 $row_lbp = mysql_fetch_row($query_lbp);
-	 
-	 $path = $root.$row_lbp[0].'.jpg'; 
-	 $imgID = 'imgID_' . $k;
-	 $imgPath = '<img id="'.$imgID.'" src="'.$row_lbp[4];
-	 $imgPath = $imgPath. '"  border=0 width="148px" height="148px"/>';
-	echo  '<div class="prod_box">';
-    echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_lbp[0].'">';
-	echo    $imgPath;
-	echo  '<span class="prod_info"><ul>';
-	echo  '<li>'.dynamic_substr($row_lbp[1]).'...</li>';
-	echo  '<li>价格：&yen;'.$row_lbp[2].'</li><li>商家：'. $mall[$row_lbp[6]].'</li>';
-	echo  '</ul></span></a></div>';	
-   	echo  '</div>';		
-	}   // end for-k
-	
+	for($k=1;$k<=5;$k++){
+        $sql_lbp = 'select * from '. $bagtype.' where bagID=' .$slbp[$k-1];
+	    $query_lbp = mysql_query($sql_lbp, $con) or die("Invalid query: " . mysql_error()); 
+	    $row_lbp = mysql_fetch_row($query_lbp);
+	    $path = $root.$row_lbp[0].'.jpg'; 
+	    $imgID = 'imgID_' . $k;
+	    $imgPath = '<img id="'.$imgID.'" src="'.$row_lbp[4];
+	    $imgPath = $imgPath. '"  border=0 width="148px" height="148px"/>';
+        echo  '<div class="prod_box">';
+        echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_lbp[0].'">';
+        echo   $imgPath;
+        echo  '<span class="prod_info"><ul>';
+        echo  '<li>'.dynamic_substr($row_lbp[1]).'...</li>';
+        echo  '<li>价格：&yen;'.$row_lbp[2].'</li><li>商家：'. $mall[$row_lbp[6]].'</li>';
+        echo  '</ul></span></a></div>';	
+        echo  '</div>';
+	}
+
    //显示颜色相似的包包
    //判断是否有重复的包包
     $similar_hsv = detect_repeat($row);
-   
+    
 	for($k=0;$k<5;$k++)
 	{
-	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$similar_hsv[$k]; 
+	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$shsv[$k]; 
 	 $query_hsv = mysql_query($sql_hsv, $con) or die("Invalid query: " . mysql_error()); 
 	 $row_hsv = mysql_fetch_row($query_hsv);
 	 
@@ -187,7 +183,7 @@
 	  echo  '<li>价格：&yen;'.$row_hsv[2].'</li><li>商家：'. $mall[$row_hsv[6]].'</li>';
 	  echo  '</ul></span></a></div>';	
       echo   '<div class="bottom_prod_box"></div>';             
-  	  echo  '</div>';		
+  	  echo  '</div>';
 	}   // end for-k	 
   }  //end for
 ?>

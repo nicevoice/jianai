@@ -208,6 +208,10 @@ img.left_bt {
 .product_img a .prod_info {
     display: none;
 }
+ui li h1 h2 {
+    margin: 0px;
+    padding: 0px;
+}
 
 .prod_info li {
     max-height:35px;

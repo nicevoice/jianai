@@ -55,7 +55,7 @@
           alert('请输入图片网址!');
       }else if(!isWebImg($(web_img).val())){
           alert('请输入正确的图片地址!');  
-      }else if(getSelectType==0){
+      }else if(getSelectType()==0){
           alert('请选择类型!');
       }else{
         document.web_img_form.action = 'include/upWebImg.php?go=go&type=' + getSelectType();
@@ -93,7 +93,7 @@
     <div class="tab-pane active" id="img">
         <div class="form-horizontal">
             <div class="control-group">
-                <label class="control-label" for="uploadFile">上传:</label>
+                <label class="control-label" for="uploadFile">上传图片:</label>
                 <div class="controls">
                     <form  name="img_form" id="img_form" method="post" enctype="multipart/form-data">
                         <input name="upLocalImg" id="upload_img" type="file"/>
@@ -105,7 +105,7 @@
     <div class="tab-pane" id="web">
         <div class="form-horizontal">
             <div class="control-group">
-                <label class="control-label" for="uploadFile">网络图片地址:</label>
+                <label class="control-label" for="uploadFile">网络图片:</label>
                 <div class="controls">
                     <form name="web_img_form" action="" method="post">
                         <input type="text" name="web_upImg" id="web_img" class="input-xxlarge" placeholder="直接右键网络上的图片，复制图片链接即可" />
@@ -128,7 +128,7 @@
     </div>
 </div>
 <div class="form-horizontal">
-    <fieldset class="row">
+    <fieldset>
         <div class="control-group">
             <label class="control-label">女包类型:</label>
             <div class="controls">

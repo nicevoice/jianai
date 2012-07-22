@@ -2,11 +2,11 @@
 include ('header.php');
 ?>
 <div class="well showcase" align="center">
-	<h3>点击图片，查看相似包包</h3>
+	<h3>一种更好的浏览方式，点击查看相似包包</h3>
 	<div><img src="images/icons/showcase.gif" height="220" /></div>
 </div>
 <div class="row-fluid">
-    <h3>选择包包类别</h3>
+    <h3>请先选择包包类别</h3>
 	<ul class="thumbnails">
 		<li class="span3">
 		    <a href="women.php">
