@@ -176,7 +176,6 @@ img.left_bt {
     display: block;
     border: 0;
     text-decoration: none;
-    float: left;
 }
 
 .product_img a:hover {
