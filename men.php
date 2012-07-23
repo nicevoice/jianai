@@ -20,7 +20,7 @@
                 $bag = new Bag($type);
                 $result = $bag->query($rowSize);
                 foreach( $result as $item ){
-                 $imgPath = '<img id="imgID_'.$item->id.'" src="'.$item->img_url.'" border=0 width="160px" height="160px"/>';
+                 $imgPath = '<img id="imgID_'.$item->id.'" src="'.$item->img_url.'" border=0 width="160" height="160"/>';
                  ?>
                  <div class="prod_box">
                      <div class="product_img">

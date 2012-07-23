@@ -86,7 +86,7 @@
 	 $path = $root.$bag->id.'.jpg'; 
 	 $imgID = 'imgID_' . $k;
 	 $imgPath = '<img id="'.$imgID.'" src="'.$bag->img_url;
-	 $imgPath = $imgPath. '"  border=0 width="160px" height="160px"/>';
+	 $imgPath = $imgPath. '"  border=0 width="160" height="160"/>';
 	echo  '<div class="prod_box">';
     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
 	echo    $imgPath;
@@ -118,7 +118,7 @@
 	 $path = $root.$row_hsv[0].'.jpg'; 
 	 $imgID = 'imgID_' . $k;
 	 $imgPath = '<img id="'.$imgID.'" src="'.$row_hsv[4];
-	 $imgPath = $imgPath. '"  border=0 width="160px" height="160px"/>';
+	 $imgPath = $imgPath. '"  border=0 width="160" height="160"/>';
 	echo  '<div class="prod_box">';
     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
 	echo    $imgPath;
@@ -149,7 +149,7 @@
 	 $path = $root.$row_com[0].'.jpg'; 
 	 $imgID = 'imgID_' . $k;
 	 $imgPath = '<img id="'.$imgID.'" src="'.$row_com[4];
-	 $imgPath = $imgPath. '"  border=0 width="160px" height="160px"/>';
+	 $imgPath = $imgPath. '"  border=0 width="160" height="160"/>';
 	echo  '<div class="prod_box">';
     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_com[0].'">';
 	echo    $imgPath;
