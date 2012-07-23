@@ -216,6 +216,7 @@ ui li h1 h2 {
 .prod_info li {
     max-height:35px;
     overflow: hidden;
+    width: 145px;
 }
 .prod_info ul {
     list-style: none;

@@ -102,12 +102,10 @@
    return $substr;	
   }
   
-  function detect_repeat($row)
-  {
-	for($k=1;$k<=5;$k++)
-	{
-	  $slbp[]= $row[$k]; 
-	  $shsv[]= $row[15+$k]; 	  
+  function detect_repeat($row){
+	for($k=1;$k<=5;$k++){
+	  $slbp[]= $row[$k];
+      $shsv[]= $row[15+$k]; 
 	 }
   $result = array_intersect($shsv, $slbp);
 	
@@ -166,10 +164,9 @@
 
    //显示颜色相似的包包
    //判断是否有重复的包包
-    $similar_hsv = detect_repeat($row);
+    //$similar_hsv = detect_repeat($row);
     
-	for($k=0;$k<5;$k++)
-	{
+	for($k=0;$k<5;$k++){
 	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$shsv[$k]; 
 	 $query_hsv = mysql_query($sql_hsv, $con) or die("Invalid query: " . mysql_error()); 
 	 $row_hsv = mysql_fetch_array($query_hsv);
@@ -179,21 +176,20 @@
 	 $imgID = 'imgID_' . $k;
 	 $imgPath = '<img id="'.$imgID.'" src="'.$bag->img_url;
 	 $imgPath = $imgPath. '"  border=0 width="148px" height="148px"/>';
-	  echo  '<div class="prod_box">';
-      echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
-	  echo    $imgPath;
-	  echo  '<span class="prod_info"><ul>';
+	 echo  '<div class="prod_box">';
+     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
+	 echo    $imgPath;
+	 echo  '<span class="prod_info"><ul>';
 	 echo  '<li>'.dynamic_substr($bag->name).'...</li>';
-	  echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$bag->mall_id].'</li>';
-	  echo  '</ul></span></a></div>';	
-      echo   '<div class="bottom_prod_box"></div>';             
-  	  echo  '</div>';
+	 echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$bag->mall_id].'</li>';
+	 echo  '</ul></span></a></div>';	
+     echo   '<div class="bottom_prod_box"></div>';             
+  	 echo  '</div>';
 	}   // end for-k	 
   }  //end for
 ?>
 				</div><!-- end of center content --><!-- end of right content -->
 			</div><!-- end of main content -->
-
 			<div class="footer">
 				<div class="left_footer">
 					<a href="#">首页</a>
@@ -203,10 +199,8 @@
 					<a href="#">诚聘英才</a>
 				</div>
 			</div>
-
 		</div>
 		<!-- end of main_container -->
-
 		<?php 
 		  ob_end_flush();
 		?>
