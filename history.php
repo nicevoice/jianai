@@ -58,19 +58,20 @@
 							$bagtype = $browsed_info[$i]['type'];
 							$sql_selected = 'select * from ' . $bagtype . ' where bagID=' . $browsed_info[$i]['ID'];
 							$query_selected = mysql_query($sql_selected, $con) or die("Invalid query: " . mysql_error());
-							$row_selected = mysql_fetch_row($query_selected);
-							if ($i == 0)
-								//echo ' <img src="prod_img/'.$bagtype.'/'.$row_selected[0].'.jpg" width="190px"/>';
-								echo ' <img src="' . $row_selected[4] . '" width="190px"/>';
-							else
-								//echo ' <img src="prod_img/'.$bagtype.'/'.$row_selected[0].'.jpg" width="190" style="padding:90px 0 0 0"/>';
-								echo ' <img src="' . $row_selected[4] . '" width="190" style="padding:90px 0 0 0"/>';
+							$row_selected = mysql_fetch_array($query_selected);
+							$bag = new Bag($bagtype);
+                            $bag = $bag->mapping_fields($row_selected);
+							if ($i == 0){
+							    echo ' <img src="' . $bag->img_url . '" width="190px"/>';
+							}else{
+							    echo ' <img src="' . $bag->img_url . '" width="190" style="padding:90px 0 0 0"/>';
+							}
 
-							echo '<div class="product_info"><ul> <li>' . $row_selected[1] . '</li>';
-							echo '<li>价格：<span class="price">&yen;' . $row_selected[2] . '</span></li>';
-							echo '<li>商家：' . $mall[$row_selected[6]] . '</li>';
+							echo '<div class="product_info"><ul> <li>' . $bag->name . '</li>';
+							echo '<li>价格：<span class="price">&yen;' . $bag->price . '</span></li>';
+							echo '<li>商家：' . $mall[$bag->mall_id] . '</li>';
 							echo '</ul></div>';
-							echo '<a class="button2" href="' . $row_selected[3] . '"  target="_blank"><span>去商城看看</span></a>';
+							echo '<a class="button2" href="' . $bag->url . '"  target="_blank"><span>去商城看看</span></a>';
 						}
 					?>
               
@@ -146,17 +147,19 @@
 	for($k=1;$k<=5;$k++){
         $sql_lbp = 'select * from '. $bagtype.' where bagID=' .$slbp[$k-1];
 	    $query_lbp = mysql_query($sql_lbp, $con) or die("Invalid query: " . mysql_error()); 
-	    $row_lbp = mysql_fetch_row($query_lbp);
-	    $path = $root.$row_lbp[0].'.jpg'; 
+	    $row_lbp = mysql_fetch_array($query_lbp);
+        $bag = new Bag($bagtype);
+        $bag = $bag->mapping_fields($row_lbp);
+	    $path = $root.$bag->id.'.jpg'; 
 	    $imgID = 'imgID_' . $k;
-	    $imgPath = '<img id="'.$imgID.'" src="'.$row_lbp[4];
+	    $imgPath = '<img id="'.$imgID.'" src="'.$bag->img_url;
 	    $imgPath = $imgPath. '"  border=0 width="148px" height="148px"/>';
         echo  '<div class="prod_box">';
-        echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_lbp[0].'">';
+        echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
         echo   $imgPath;
         echo  '<span class="prod_info"><ul>';
-        echo  '<li>'.dynamic_substr($row_lbp[1]).'...</li>';
-        echo  '<li>价格：&yen;'.$row_lbp[2].'</li><li>商家：'. $mall[$row_lbp[6]].'</li>';
+        echo  '<li>'.dynamic_substr($bag->name).'...</li>';
+        echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$bag->mall_id].'</li>';
         echo  '</ul></span></a></div>';	
         echo  '</div>';
 	}
@@ -170,17 +173,18 @@
 	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$shsv[$k]; 
 	 $query_hsv = mysql_query($sql_hsv, $con) or die("Invalid query: " . mysql_error()); 
 	 $row_hsv = mysql_fetch_row($query_hsv);
-	 
-	 $path = $root.$row_hsv[0].'.jpg'; 
+	 $bag = new Bag($bagtype);
+     $bag = $bag->mapping_fields($row_hsv);
+	 $path = $root.$bag->id.'.jpg'; 
 	 $imgID = 'imgID_' . $k;
-	 $imgPath = '<img id="'.$imgID.'" src="'.$row_hsv[4];
+	 $imgPath = '<img id="'.$imgID.'" src="'.$bag->img_url;
 	 $imgPath = $imgPath. '"  border=0 width="148px" height="148px"/>';
 	  echo  '<div class="prod_box">';
-      echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_hsv[0].'">';
+      echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
 	  echo    $imgPath;
 	  echo  '<span class="prod_info"><ul>';
-	 echo  '<li>'.dynamic_substr($row_hsv[1]).'...</li>';
-	  echo  '<li>价格：&yen;'.$row_hsv[2].'</li><li>商家：'. $mall[$row_hsv[6]].'</li>';
+	 echo  '<li>'.dynamic_substr($bag->name).'...</li>';
+	  echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$bag->mall_id].'</li>';
 	  echo  '</ul></span></a></div>';	
       echo   '<div class="bottom_prod_box"></div>';             
   	  echo  '</div>';

@@ -10,6 +10,7 @@
      public function __construct($table_name){
         $this->table_name = $table_name;
      }
+     // Query查询时用来填充结果数组
      public function mapping_fields($row){
          $model = new Bag($this->table_name);
          $model->id = $row['bagID'];
@@ -19,6 +20,10 @@
          $model->img_url = $row['bagImgURL'];
          $model->mall_id = $row['mallID'];
          $model->brand_id = $row['brandID'];
+         //处理部分价格未抓取到的情况
+         if($model->price == 0){
+             $model->price = "无法获取";
+         }
          return $model;
      }
  }

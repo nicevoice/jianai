@@ -234,39 +234,36 @@ function dynamic_substr($str)
 	else
 	   $page_count = 0;
 	
-	// 显示当前页的商品
-	if($amount)
-	{
-	if($mm==1000)
-	{
-    $sql = "select * from ".$bagtype." where score<3997 and mallID>".$mm;
-	$sql = $sql." and brandID>=".$b1." and brandID<=".$b2." and bagPrice>=".$p1." and bagPrice<=".$p2; 		  
-	$sql = $sql." order by score desc, mallID limit ". ($page-1)*$pageSize.", ".$pageSize; 
-	}
-	else
-	{
-    $sql = "select * from ".$bagtype." where score<3997 and mallID=".$mm;
-	$sql = $sql." and brandID>=".$b1." and brandID<=".$b2." and bagPrice>=".$p1." and bagPrice<=".$p2;    				  
-	$sql = $sql." order by score desc, mallID limit ". ($page-1)*$pageSize.", ".$pageSize; 
+// 显示当前页的商品
+if($amount){
+	if($mm==1000){
+        $sql = "select * from ".$bagtype." where score<3997 and mallID>".$mm;
+    	$sql = $sql." and brandID>=".$b1." and brandID<=".$b2." and bagPrice>=".$p1." and bagPrice<=".$p2; 		  
+    	$sql = $sql." order by score desc, mallID limit ". ($page-1)*$pageSize.", ".$pageSize; 
+	}else{
+        $sql = "select * from ".$bagtype." where score<3997 and mallID=".$mm;
+    	$sql = $sql." and brandID>=".$b1." and brandID<=".$b2." and bagPrice>=".$p1." and bagPrice<=".$p2;    				  
+    	$sql = $sql." order by score desc, mallID limit ". ($page-1)*$pageSize.", ".$pageSize; 
 	}
 		
 	
 	$query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
-    while($row=mysql_fetch_row($query))
-	{	 
-	 $path = $root.$row[0].'.jpg'; 
-	 $imgID = 'imgID_' . $row[0];
-	 $imgPath = '<img id="'.$imgID.'" src="'.$row[4];
+    while($row=mysql_fetch_array($query)){
+     $bag = new Bag($bagtype);
+     $bag = $bag->mapping_fields($row);
+	 $path = $root.$bag->id.'.jpg'; 
+	 $imgID = 'imgID_' . $bag->id;
+	 $imgPath = '<img id="'.$imgID.'" src="'.$bag->img_url;
 	 $imgPath = $imgPath. '"  border=0 width="160px" height="160px"/>';
-	echo  '<div class="prod_box">';
-    echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row[0].'">';
-	echo    $imgPath;
-	echo  '<span class="prod_info"><ul>';
-	echo  '<li>'.dynamic_substr($row[1]).'</li>';
-	echo  '<li>价格：&yen;'.$row[2].'</li><li>商家：'. $mall[$row[6]].'</li>';
-	echo  '</ul></span></a></div>';	
-    echo   '<div class="bottom_prod_box"></div>';             
-  	echo  '</div>';
+	 echo  '<div class="prod_box">';
+     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
+	 echo    $imgPath;
+	 echo  '<span class="prod_info"><ul>';
+	 echo  '<li>'.dynamic_substr($bag->name).'</li>';
+	 echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$bag->mall_id].'</li>';
+	 echo  '</ul></span></a></div>';
+     echo   '<div class="bottom_prod_box"></div>';
+  	 echo  '</div>';
 	}// end while
 	
 	echo ' <img src="images/division_border.jpg" style="padding:15px 0 5px 0;" />';

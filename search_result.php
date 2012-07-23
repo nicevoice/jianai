@@ -78,17 +78,21 @@
 	 $sql_lbp = 'select * from '. $bagtype.' where bagID=' .$row[$k]; 
      
 	 $query_lbp = mysql_query($sql_lbp, $con) or die("Invalid query: " . mysql_error()); 
-	 $row_lbp = mysql_fetch_row($query_lbp);
-	 $path = $root.$row_lbp[0].'.jpg'; 
+	 $row_lbp = mysql_fetch_array($query_lbp);
+     
+     $bag = new Bag($bagtype);
+     $bag = $bag->mapping_fields($row_lbp);
+     
+	 $path = $root.$bag->id.'.jpg'; 
 	 $imgID = 'imgID_' . $k;
-	 $imgPath = '<img id="'.$imgID.'" src="'.$row_lbp[4];
+	 $imgPath = '<img id="'.$imgID.'" src="'.$bag->img_url;
 	 $imgPath = $imgPath. '"  border=0 width="160px" height="160px"/>';
 	echo  '<div class="prod_box">';
-    echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_lbp[0].'">';
+    echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
 	echo    $imgPath;
 	echo  '<span class="prod_info"><ul>';
-	echo  '<li>'.dynamic_substr($row_lbp[1]).'...</li>';
-	echo  '<li>价格：&yen;'.$row_lbp[2].'</li><li>商家：'. $mall[$row_lbp[6]].'</li>';
+	echo  '<li>'.dynamic_substr($bag->name).'...</li>';
+	echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$bag->mall_id].'</li>';
 	echo  '</ul></span></a></div>';	
     echo   '<div class="bottom_prod_box"></div>';             
   	echo  '</div>';
@@ -106,18 +110,21 @@
 	{
 	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$row[$k];
 	 $query_hsv = mysql_query($sql_hsv, $con) or die("Invalid query: " . mysql_error());  
-	 $row_hsv = mysql_fetch_row($query_hsv);
-	 
+	 $row_hsv = mysql_fetch_array($query_hsv);
+     
+	 $bag = new Bag($bagtype);
+     $bag = $bag->mapping_fields($row_hsv);
+
 	 $path = $root.$row_hsv[0].'.jpg'; 
 	 $imgID = 'imgID_' . $k;
 	 $imgPath = '<img id="'.$imgID.'" src="'.$row_hsv[4];
 	 $imgPath = $imgPath. '"  border=0 width="160px" height="160px"/>';
 	echo  '<div class="prod_box">';
-    echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$row_hsv[0].'">';
+    echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
 	echo    $imgPath;
 	echo  '<span class="prod_info"><ul>';
 	echo  '<li>'.dynamic_substr($row_hsv[1]).'...</li>';
-	echo  '<li>价格：&yen;'.$row_hsv[2].'</li><li>商家：'. $mall[$row_hsv[6]].'</li>';
+	echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$row_hsv[6]].'</li>';
 	echo  '</ul></span></a></div>';	
     echo   '<div class="bottom_prod_box"></div>';             
   	echo  '</div>';		
@@ -134,8 +141,11 @@
 	{
 	 $sql_com = 'select * from '. $bagtype.' where bagID=' .$row[$k]; 
 	 $query_com = mysql_query($sql_com, $con) or die("Invalid query: " . mysql_error());  
-	 $row_com = mysql_fetch_row($query_com);
+	 $row_com = mysql_fetch_array($query_com);
 	 
+	 $bag = new Bag($bagtype);
+     $bag = $bag->mapping_fields($row_com);
+     
 	 $path = $root.$row_com[0].'.jpg'; 
 	 $imgID = 'imgID_' . $k;
 	 $imgPath = '<img id="'.$imgID.'" src="'.$row_com[4];
@@ -145,7 +155,7 @@
 	echo    $imgPath;
 	echo  '<span class="prod_info"><ul>';
 	echo  '<li>'.dynamic_substr($row_com[1]).'...</li>';
-	echo  '<li>价格：&yen;'.$row_com[2].'</li><li>商家：'. $mall[$row_com[6]].'</li>';
+	echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$row_com[6]].'</li>';
 	echo  '</ul></span></a></div>';	
     echo   '<div class="bottom_prod_box"></div>';             
   	echo  '</div>';
