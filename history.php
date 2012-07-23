@@ -172,7 +172,7 @@
 	{
 	 $sql_hsv = 'select * from '. $bagtype.' where bagID=' .$shsv[$k]; 
 	 $query_hsv = mysql_query($sql_hsv, $con) or die("Invalid query: " . mysql_error()); 
-	 $row_hsv = mysql_fetch_row($query_hsv);
+	 $row_hsv = mysql_fetch_array($query_hsv);
 	 $bag = new Bag($bagtype);
      $bag = $bag->mapping_fields($row_hsv);
 	 $path = $root.$bag->id.'.jpg'; 
