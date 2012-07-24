@@ -1,5 +1,6 @@
 <?php
  include 'header.php';
+ include 'include/list_functions.php';
   // 获取参数
   //类型
   if(isset($_GET['tt']))
@@ -84,16 +85,9 @@
          <ul style="padding:5px"> 
             <li style="font-weight:bold">商家：</li>
             <li id="1000"><a href="#" onclick="select('1000','<?php echo $bb; ?>','<?php echo $pp; ?>')">不限</a> </li>
-            <li id="1006"><a href="#" onclick="select('1006','<?php echo $bb; ?>','<?php echo $pp; ?>')">天猫商城</a> </li>
-            <li id="1001"><a href="#"  onclick="select('1001','<?php echo $bb; ?>','<?php echo $pp; ?>')">麦包包</a> </li>
-            <li id="1002"><a href="#"  onclick="select('1002','<?php echo $bb; ?>','<?php echo $pp; ?>')">京东商城</a> </li>
-            <li id="1003"><a href="#"  onclick="select('1003','<?php echo $bb; ?>','<?php echo $pp; ?>')">亚马逊</a> </li>
-            <li id="1005"><a href="#"  onclick="select('1005','<?php echo $bb; ?>','<?php echo $pp; ?>')">当当商城</a> </li>
-            <li id="1007"><a href="#"  onclick="select('1007','<?php echo $bb; ?>','<?php echo $pp; ?>')">凡客</a> </li>
-            <li id="1010"><a href="#"  onclick="select('1010','<?php echo $bb; ?>','<?php echo $pp; ?>')">银泰网</a> </li>
-            <li id="1004"><a href="#" onclick="select('1004','<?php echo $bb; ?>','<?php echo $pp; ?>')">走秀网</a> </li>
-            <li id="1009"><a href="#"  onclick="select('1009','<?php echo $bb; ?>','<?php echo $pp; ?>')">梦芭莎</a> </li>
-            <li id="1008"><a href="#"  onclick="select('1008','<?php echo $bb; ?>','<?php echo $pp; ?>')">尊酷网</a> </li>
+            <?php foreach ($mall as $key => $value) { ?>
+                <li id="<? echo $key ?>"><a href="#" onclick="select('<? echo $key ?>','<?php echo $bb; ?>','<?php echo $pp; ?>')"><? echo $value ?></a> </li>
+            <?php } ?>
           </ul>      
    </div>  <!-- end of spread  -->
    
@@ -168,34 +162,10 @@
    
     </div>
  <?php
-
-function dynamic_substr($str)
- {
-  //$str = html_entity_decode($str,ENT_NOQUOTES, 'UTF-8');
-  //$str = str_replace('&nbsp;','',$str);
-  $len1= strlen($str);
   
-  $substr = mb_substr($str,0,30);  
-   $len2 = strlen($substr); 
-  //if($len2<=55)
-   // $substr = mb_substr($str,0,35); 
-  if($len2>=68)
-    $substr = mb_substr($str,0,25);
-  
-   $len2 = strlen($substr); 
-  
-  if($len2<$len1)
-     $substr = $substr . '...';
-	
-  return $substr;	
- }
-  
-	$root = 'prod_img/'.$bagtype.'/';	
-	$mall = array('1001'=>'麦包包','1002'=>'京东商城','1003'=>'亚马逊','1004'=>'走秀网','1005'=>'当当网','1006'=>'天猫商城','1007'=>'凡客诚品','1008'=>'尊酷网','1009'=>'梦芭莎','1010'=>'银泰网','1011'=>'爱上包包网');
-	
+	$root = 'prod_img/'.$bagtype.'/';
 	// 获取当前页数
 	$page = (isset($_GET['page']))? intval($_GET['page']):1;
-		
 	//设置每页显示的数量
 	$pageSize = 36;
 	$adjacents =3;
