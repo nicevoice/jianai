@@ -167,7 +167,7 @@
 	// 获取当前页数
 	$page = (isset($_GET['page']))? intval($_GET['page']):1;
 	//设置每页显示的数量
-	$pageSize = 36;
+	$pageSize = 35;
 	$adjacents =3;
 	
 	//获取总的数据量
@@ -215,35 +215,35 @@ if($amount){
     	$sql = $sql." and brandID>=".$b1." and brandID<=".$b2." and bagPrice>=".$p1." and bagPrice<=".$p2;    				  
     	$sql = $sql." order by score desc, mallID limit ". ($page-1)*$pageSize.", ".$pageSize; 
 	}
-		
-	
+
 	$query = mysql_query($sql, $con) or die("Invalid query: " . mysql_error()); 
     while($row=mysql_fetch_array($query)){
      $bag = new Bag($bagtype);
-     $bag = $bag->mapping_fields($row);
-	 $path = $root.$bag->id.'.jpg'; 
-	 $imgID = 'imgID_' . $bag->id;
-	 $imgPath = '<img id="'.$imgID.'" src="'.$bag->img_url;
-	 $imgPath = $imgPath. '"  border=0 width="160" height="160"/>';
-	 echo  '<div class="prod_box">';
-     echo  '<div class="product_img"><a href="similarbag.php?type='.$bagtype.'&id='.$bag->id.'">';
-	 echo    $imgPath;
-	 echo  '<span class="prod_info"><ul>';
-	 echo  '<li>'.dynamic_substr($bag->name).'</li>';
-	 echo  '<li>价格：&yen;'.$bag->price.'</li><li>商家：'. $mall[$bag->mall_id].'</li>';
-	 echo  '</ul></span></a></div>';
-     echo   '<div class="bottom_prod_box"></div>';
-  	 echo  '</div>';
-	}// end while
-	
-	echo ' <img src="images/division_border.jpg" style="padding:15px 0 5px 0;" />';
-	// call pagination function:
-     include("css/pagination3.php");
-	 $reload = $_SERVER['PHP_SELF'].'?tt='.$bagtype.'&mm='.$mm.'&bb='.$bb.'&pp='.$pp;
-	 $reload = $reload . "&page_count=" . $page_count;
-	 echo paginate_three($reload, $page, $page_count, $adjacents);
+     $bag = $bag->mapping_fields($row); 
+	 $imgPath = '<img id="imgID_'.$bag->id.'" src="'.$bag->img_url.'" border=0 width="160" height="160"/>';
+     ?>
+     <div class="item-box">
+         <div class="item-img">
+             <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
+                <?php echo $imgPath; ?>
+             </a>
+         </div>
+         <div class="item-info">
+                <div><?php echo dynamic_substr($bag->name); ?></div>
+                <div>价格：&yen;<?php echo $bag->price; ?></div>
+                <div>商家：<?php echo $mall[$bag->mall_id] ?></div>
+        </div>
+     </div>
+  	 
+  	<?php
+	   }// end while
+	   echo ' <img src="images/division_border.jpg" style="padding:15px 0 5px 0;" />';
+	   // call pagination function:
+        include("css/pagination3.php");
+	   $reload = $_SERVER['PHP_SELF'].'?tt='.$bagtype.'&mm='.$mm.'&bb='.$bb.'&pp='.$pp;
+	   $reload = $reload . "&page_count=" . $page_count;
+	   echo paginate_three($reload, $page, $page_count, $adjacents);
 	} // end if($amount)
-	   
 ?>
  
  <script language="javascript">
@@ -268,15 +268,9 @@ if($amount){
   content = content.replace(/<a.*?>/ig,""); 
    content = content.replace(/<\/a>/ig,""); 
    document.getElementById("<?php echo $pid;?>").innerHTML = content;
- 
-  
  </script>
-        
     </div><!-- end of center content --><!-- end of right content -->   
  </div><!-- end of main content -->
-   
-   
-   
 <?php
     include 'footer.php';
 ?>

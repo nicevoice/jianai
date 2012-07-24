@@ -119,13 +119,13 @@
                                 $browsed_info = explode("@", $_COOKIE[$cookieName]);
                                 $browsed_type = $browsed_info[0];
                                 $browsed_URL = $browsed_info[1];
-
+                                if($browsed_URL==''){
+                                    continue;
+                                }
                                 //检查cookie是否在更新的数据库中
                                 $sql_browsed = "select * from " . $browsed_type . " where bagImgURL='" . $browsed_URL . "'";
                                 $query_browsed = mysql_query($sql_browsed, $con) or die("Invalid query: " . mysql_error());
-
-                                if (mysql_num_rows($query_browsed))//如果cookie没有下架
-                                {
+                                if (mysql_num_rows($query_browsed)){
                                     $row_browsed = mysql_fetch_row($query_browsed);
                                     echo '<a href="similarbag.php?type=' . $browsed_type . '&id=' . $row_browsed[0] . '">';
                                     //echo '<img src="prod_img/'.$browsed_type.'/'.$row_browsed[0].'.jpg" title="'. $row_browsed[1].'" width="90" height="90"  border=0/>';

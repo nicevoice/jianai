@@ -13,7 +13,7 @@
         foreach($gn_bag_types as $index=>$type){
     ?>
         <div class="tab-pane <? echo $index == 0 ? 'active' : '' ; ?>" id="<? echo $type; ?>">
-            <div align="right"><a class="btn btn-danger" href="more.php?tt=<? echo $type; ?>">查看更多</a></div>
+            <!-- <div align="right"><a class="btn btn-danger" href="more.php?tt=<? echo $type; ?>">查看更多</a></div> -->
             <?php
                 // 显示单肩包
                 $bag = new Bag($type);
@@ -21,20 +21,17 @@
                 foreach( $result as $item ){
                  $imgPath = '<img id="imgID_'.$item->id.'" src="'.$item->img_url.'" border=0 width="160" height="160"/>';
                  ?>
-                 <div class="prod_box">
-                     <div class="product_img">
+                 <div class="item-box">
+                     <div class="item-img">
                          <a href="similarbag.php?type=<?echo $type;?>&id=<?php echo $item->id; ?>">
                             <?php echo $imgPath; ?>
-                            <span class="prod_info">
-                                <ul>
-                                    <li><?php echo dynamic_substr($item->name); ?></li>
-                                    <li>价格：&yen;<?php echo $item->price; ?></li>
-                                    <li>商家：<?php echo $mall[$item->mall_id] ?></li>
-                                </ul>
-                            </span>
                          </a>
                      </div>
-                     <div class="bottom_prod_box"></div>
+                     <div class="item-info">
+                         <div><?php echo dynamic_substr($item->name); ?></div>
+                         <div>价格：&yen;<?php echo $item->price; ?></div>
+                         <div>商家：<?php echo $mall[$item->mall_id] ?></div>
+                    </div>
                  </div>
                  <?php } ?>
         </div>
