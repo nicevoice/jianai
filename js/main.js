@@ -15,4 +15,7 @@ $(document).ready(function(){
             window.location.href="more.php?tt="+type;
         });
     });
+    $(".auto-dropdown .dropdown").each(function(){
+        var d = $(this);
+    });
 });

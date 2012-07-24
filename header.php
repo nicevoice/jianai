@@ -22,7 +22,8 @@
 	</head>
 	<body>
 		<div id="main_container">
-			<div class="top_bar" align="center">    
+			<div class="top_bar" align="center">  
+			    <!--  
 				<div class="top_menu">
 					<div id="nav">
 						<ul class="select">
@@ -60,8 +61,52 @@
 						</ul>
 					</div>
 				</div>
-				<div style="padding-left: 280px;">
-				    <a href="index.php"><img src="images/icons/logo.png"/></a>
+				-->
+				<div>
+				    <a href="#"><img src="images/icons/logo.png"/></a>
+				</div>
+				<div class="nav-bar auto-dropdown">
+				    <ul class="nav nav-pills">
+                      <li><a href="#">首页</a></li>
+                      <li class="dropdown" id="nvbao">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#nvbao">
+                          女包
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">女士单肩包</a></li>
+                          <li><a href="#">女士斜挎包</a></li>
+                          <li><a href="#">女士手提包</a></li>
+                          <li><a href="#">女士双肩包</a></li>
+                          <li><a href="#">女士手包</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown" id="nanbao">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#nanbao">
+                          男包
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">男士单肩包</a></li>
+                          <li><a href="#">男士公文包</a></li>
+                          <li><a href="#">男士钱包</a></li>
+                          <li><a href="#">男士手包</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown" id="xiangbao">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#xiangbao">
+                          箱包
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">男士单肩包</a></li>
+                          <li><a href="#">男士公文包</a></li>
+                          <li><a href="#">男士钱包</a></li>
+                          <li><a href="#">男士手包</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="#">搜索</a></li>
+                    </ul>
 				</div>
 			</div>
 			<!-- end of top_bar -->

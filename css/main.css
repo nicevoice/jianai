@@ -1,7 +1,50 @@
+html,body {
+    background:#f7f5f5 url("../images/bg.gif") repeat;
+    font-family: "helvetica neue",arial,sans-serif;
+}
 .items-container {
     height: 1000px;
 }
 .showcase {
     background-color: white;
     height: 230px;
+}
+.item-box {
+    width: 152px;
+    padding: 15px 15px 0;
+    margin: 8px;
+    float: left;
+    opacity: 1;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+.item-info {
+    height :80px;
+}
+.item-info div {
+    max-height: 38px;
+    overflow: hidden;
+}
+.items-container {
+    height: 1700px;
+}
+.auto-tabs .active a{
+    background:url("../images/bg.gif");
+}
+.nav-bar {
+    margin: 15px 0;
+    background: white;
+    background: rgba(255, 255, 255, .98);
+    box-shadow: 0 1px 0 white inset,0 1px 3px rgba(0, 0, 0, .15);
+    font-size: 14px;
+    height: 40px;
+    position: relative;
+    z-index: 99;
+    padding-left: 20px;
+}
+.nav-bar li a{
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    line-height: 19px;
 }
