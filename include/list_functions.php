@@ -7,7 +7,7 @@
  */
 //商城列表
 $mall = array();
-$mall_query = mysql_query("select mallID,mallName from mall_list") or die("Invalid query: " . mysql_error());
+$mall_query = mysql_query("select mallID,mallName from mall_list where valid = 1") or die("Invalid query: " . mysql_error());
 while($row=mysql_fetch_array($mall_query)){
     $key = $row['mallID'];
     $value = $row['mallName'];
