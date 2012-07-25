@@ -35,6 +35,7 @@
                     </div>
                  </div>
              <?php } ?>
+             <a href="more.php?tt=<? echo $type ?>" class="btn btn-info" style="float: right;margin-right: 20px;">查看更多</a>
         </div>
     <?php } ?>
 </div>

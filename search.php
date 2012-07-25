@@ -84,7 +84,7 @@
     }
 </script>
 
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs gray-tab">
   <li class="active"><a href="#img" data-toggle="tab">从电脑上传图片</a></li>
   <li><a href="#web" data-toggle="tab">网络获取图片</a></li>
   <li><a href="#text" data-toggle="tab">文本搜索</a></li>

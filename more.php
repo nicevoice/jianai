@@ -72,7 +72,7 @@
 </script>
    
    <div id="main_content"> 
-   <div class="center_content">
+   <div>
    <div class="lead">
        <h4>
            <i class="icon-search"></i>

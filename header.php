@@ -32,11 +32,13 @@
                           <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">女士单肩包</a></li>
-                          <li><a href="#">女士斜挎包</a></li>
-                          <li><a href="#">女士手提包</a></li>
-                          <li><a href="#">女士双肩包</a></li>
-                          <li><a href="#">女士手包</a></li>
+                          <li><a href="women.php">女包</a></li>
+                          <li class="divider"></li>
+                          <li><a href="more.php?tt=wdanjianbao">女士单肩包</a></li>
+                          <li><a href="more.php?tt=wxiekuabao">女士斜挎包</a></li>
+                          <li><a href="more.php?tt=wshoutibao">女士手提包</a></li>
+                          <li><a href="more.php?tt=wshuangjianbao">女士双肩包</a></li>
+                          <li><a href="more.php?tt=wshounabao">女士手包</a></li>
                         </ul>
                       </li>
                       <li class="dropdown" id="nanbao">
@@ -45,10 +47,12 @@
                           <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">男士单肩包</a></li>
-                          <li><a href="#">男士公文包</a></li>
-                          <li><a href="#">男士钱包</a></li>
-                          <li><a href="#">男士手包</a></li>
+                          <li><a href="men.php">男包</a></li>
+                          <li class="divider"></li>
+                          <li><a href="more.php?tt=mdanjianbao">男士单肩包</a></li>
+                          <li><a href="more.php?tt=mgongwenbao">男士公文包</a></li>
+                          <li><a href="more.php?tt=mqianbao_yaobao">男士钱包</a></li>
+                          <li><a href="more.php?tt=mshounabao">男士手包</a></li>
                         </ul>
                       </li>
                       <li class="dropdown" id="xiangbao">
@@ -57,13 +61,14 @@
                           <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">男士单肩包</a></li>
-                          <li><a href="#">男士公文包</a></li>
-                          <li><a href="#">男士钱包</a></li>
-                          <li><a href="#">男士手包</a></li>
+                          <li><a href="xiangbao.php">箱包</a></li>
+                          <li class="divider"></li>
+                          <li><a href="more.php?tt=glaganxiang">拉杆箱</a></li>
+                          <li><a href="more.php?tt=glvxingbao">旅行包</a></li>
+                          <li><a href="more.php?tt=gyundongbao">运动包</a></li>
                         </ul>
                       </li>
-                      <li><a href="#">搜索</a></li>
+                      <li><a href="search.php">搜索</a></li>
                     </ul>
 				</div>
 				<div>

@@ -15,7 +15,14 @@ $(document).ready(function(){
             window.location.href="more.php?tt="+type;
         });
     });
-    $(".auto-dropdown .dropdown").each(function(){
-        var d = $(this);
-    });
+    //dropdown自动触发
+    $('.dropdown').hover(
+        function(){
+            $(this).addClass('open').find('ul').stop(true,true).hide().slideDown('fast');
+        },
+        function(){
+            $(this).removeClass('open').find('ul').stop(true,true).slideUp('fast');
+        }
+    );
+    $('.dropdown li').unbind('mouseover').unbind('mouseout');
 });

@@ -19,7 +19,7 @@
                 $bag = new Bag($type);
                 $result = $bag->query($rowSize);
                 foreach( $result as $item ){
-                 $imgPath = '<img id="imgID_'.$item->id.'" src="'.$item->img_url.'" border=0 width="160" height="160"/>';
+                 $imgPath = '<img id="imgID_'.$item->id.'" src="'.$item->img_url.'" border="0"" width="160" height="160"/>';
                  ?>
                  <div class="item-box">
                      <div class="item-img">
@@ -34,6 +34,7 @@
                     </div>
                  </div>
                  <?php } ?>
+                 <a href="more.php?tt=<? echo $type ?>" class="btn btn-info" style="float: right;margin-right: 20px;">查看更多</a>
         </div>
     <?php } ?>
 </div>
