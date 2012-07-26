@@ -130,7 +130,7 @@
 	$page = (isset($_GET['page']))? intval($_GET['page']):1;
 		
 	//设置每页显示的数量
-	$pageSize = 1;
+	$pageSize = 16;
 	$adjacents = 3;
 	
 	//获取总的数据量
