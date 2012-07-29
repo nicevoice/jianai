@@ -68,6 +68,7 @@
                           <li><a href="more.php?tt=gyundongbao">运动包</a></li>
                         </ul>
                       </li>
+                      <li><a href="history.php">浏览记录及个性推荐</a></li>
                       <li><a href="search.php">搜索</a></li>
                     </ul>
 				</div>

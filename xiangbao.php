@@ -21,11 +21,10 @@
                 foreach( $result as $item ){
                  $imgPath = '<img id="imgID_'.$item->id.'" src="'.$item->img_url.'" border="0"" width="160" height="160"/>';
                  ?>
+                 <a href="similarbag.php?type=<?echo $type;?>&id=<?php echo $item->id; ?>">
                  <div class="item-box">
                      <div class="item-img">
-                         <a href="similarbag.php?type=<?echo $type;?>&id=<?php echo $item->id; ?>">
                             <?php echo $imgPath; ?>
-                         </a>
                      </div>
                      <div class="item-info">
                          <div><?php echo dynamic_substr($item->name); ?></div>
@@ -33,6 +32,7 @@
                          <div>商家：<?php echo $mall[$item->mall_id] ?></div>
                     </div>
                  </div>
+                 </a>
                  <?php } ?>
                  <a href="more.php?tt=<? echo $type ?>" class="btn btn-info" style="float: right;margin-right: 20px;">查看更多</a>
         </div>

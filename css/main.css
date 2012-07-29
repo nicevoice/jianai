@@ -2,9 +2,6 @@ html,body {
     background:#f7f5f5 url("../images/bg.gif") repeat;
     font-family: "helvetica neue",arial,sans-serif;
 }
-.items-container {
-    height: 1000px;
-}
 .showcase {
     background-color: white;
     height: 230px;
@@ -22,13 +19,24 @@ html,body {
 }
 .item-info {
     height :80px;
+    display: none;
+    font-size: 12px;
+    margin-top: -85px;
+    background: #FFF;
+    filter: alpha(opacity=75);
+    opacity: .75;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+    color: black;
+    position: absolute;
+    width: 155px;
+    border: 1px solid #DDD;
 }
 .item-info div {
     max-height: 38px;
     overflow: hidden;
 }
 .items-container {
-    height: 1700px;
+    height: 1200px;
 }
 .auto-tabs .active a{
     background:url("../images/bg.gif");

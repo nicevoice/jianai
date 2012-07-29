@@ -34,11 +34,10 @@
                     $bag = new Bag($bagtype);
                     $bag = $bag->mapping_fields($row_selected);
                     ?>
+                    <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
                     <div class="item-box">
                          <div class="item-img">
-                             <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
                                 <img src="<? echo $bag->img_url ?>" />
-                             </a>
                          </div>
                          <div class="item-info">
                             <div>名称：<?php echo dynamic_substr($bag->name); ?></div>
@@ -47,6 +46,7 @@
                         </div>
                         <a class="button2" href="<? echo $bag->url ?>"  target="_blank"><span>去商城看看</span></a>
                      </div>
+                     </a>
                     <?php
 
                     // 设置cookie
@@ -184,11 +184,10 @@
 
 	         $imgPath = '<img id="imgID_' . $k.'" src="'.$row_lbp[4].'"  border=0 width="148px" height="148px"/>';
         ?>
+        <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
         <div class="item-box">
              <div class="item-img">
-                 <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
                     <?php echo $imgPath; ?>
-                 </a>
              </div>
              <div class="item-info">
                 <div>名称：<?php echo dynamic_substr($bag->name); ?></div>
@@ -196,6 +195,7 @@
                 <div>商家：<?php echo $mall[$bag->mall_id] ?></div>
             </div>
          </div>
+         </a>
         <?php } ?>
 
         <div><img src="images/division_border.jpg" width="780px" style=" padding:15px 0 5px 0;" />
@@ -225,11 +225,10 @@
      
 	 $imgPath = '<img id="imgID_' . $k.'" src="'.$bag->img_url.'"  border=0 width="148px" height="148px"/>';
     ?>
+    <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
     <div class="item-box">
          <div class="item-img">
-             <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
                 <?php echo $imgPath; ?>
-             </a>
          </div>
          <div class="item-info">
             <div>名称：<?php echo dynamic_substr($bag->name); ?></div>
@@ -237,6 +236,7 @@
             <div>商家：<?php echo $mall[$bag->mall_id] ?></div>
         </div>
      </div>
+     </a>
     <?php } ?>
 
     <div><img src="images/division_border.jpg" width="780px" style=" padding:15px 0 5px 0;" />
@@ -264,11 +264,10 @@
 
 	 $imgPath = '<img id="imgID_' . $k.'" src="'.$bag->img_url.'"  border=0 width="148px" height="148px"/>';
     ?>
+    <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
     <div class="item-box">
          <div class="item-img">
-             <a href="similarbag.php?type=<?echo $bagtype;?>&id=<?php echo $bag->id; ?>">
                 <?php echo $imgPath; ?>
-             </a>
          </div>
          <div class="item-info">
             <div>名称：<?php echo dynamic_substr($bag->name); ?></div>
@@ -276,6 +275,7 @@
             <div>商家：<?php echo $mall[$bag->mall_id] ?></div>
         </div>
      </div>
+     </a>
    <?php 
     }
 

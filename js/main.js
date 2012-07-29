@@ -25,4 +25,11 @@ $(document).ready(function(){
         }
     );
     $('.dropdown li').unbind('mouseover').unbind('mouseout');
+    
+    $(".item-box").mouseover(function(){
+        $(this).children(".item-info").css("display","block");
+    });
+    $(".item-box").mouseout(function(){
+        $(this).children(".item-info").css("display","none");
+    });
 });
